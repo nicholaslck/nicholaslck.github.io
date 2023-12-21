@@ -1,9 +1,9 @@
 ---
 title: "Demo: markdown template"
 published: true
-layout: blogs
 date: 2023-12-21T04:35:13.036Z
-thumbnail: /media/uploads/screenshot-2023-12-05-at-8.38.49 pm.png
+thumbnail: /media/uploads/screenshot-2023-12-20-at-5.54.18 pm.png
+excerpt: "Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph"
 ---
 # Heading 1
 
@@ -17,6 +17,8 @@ thumbnail: /media/uploads/screenshot-2023-12-05-at-8.38.49 pm.png
 
 ###### Heading 6
 
+中文字
+ 
 Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph Body paragraph 
 
 **Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph Bold paragraph** 
