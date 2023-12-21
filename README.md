@@ -12,10 +12,6 @@
 3. open another terminal, run `npm run dev`
 4. Go to http://localhost:5173/admin
 
-## Sitemap
-
-
-
 
 ## Developing
 

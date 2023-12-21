@@ -8,4 +8,7 @@
 		So here it is, my new site, in progress. I will try to post some of my thoughts here, and maybe
 		some of my projects. I hope you enjoy your stay here. Stay tuned.
 	</p>
+
+
+	<a href="/blogs>">blogs</a>
 </div>
