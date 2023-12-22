@@ -1,4 +1,3 @@
-
 # Quick note
 
 - Using asdf to specify node version
@@ -11,7 +10,6 @@
 2. run `npx decap-server`
 3. open another terminal, run `npm run dev`
 4. Go to http://localhost:5173/admin
-
 
 ## Developing
 

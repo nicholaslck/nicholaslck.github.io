@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { glob } from 'glob';
 import matter from 'gray-matter';
 import markdownit from 'markdown-it';
@@ -31,7 +30,6 @@ export const toMarkdownData = (path: string, parsed = true): MarkdownData => {
 		data.content = raw.content;
 		data.html = md.render(raw.content);
 	}
-
 	return data;
 };
 

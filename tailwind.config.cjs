@@ -7,16 +7,18 @@ import { skeleton } from '@skeletonlabs/tw-plugin';
 const config = {
 	darkMode: 'class',
 	content: [
-		'./src/**/*.{html,js,svelte,ts}', 
+		'./src/**/*.{html,js,svelte,ts}',
 		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
 	],
 	theme: {
 		extend: {}
 	},
 
-	plugins: [skeleton({
-		themes: { preset: [ "gold-nouveau" ] }
-	})]
+	plugins: [
+		skeleton({
+			themes: { preset: ['gold-nouveau'] }
+		})
+	]
 };
 
 module.exports = config;
