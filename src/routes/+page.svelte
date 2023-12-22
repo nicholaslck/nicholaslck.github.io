@@ -28,13 +28,3 @@
 		{/each}
 	</div>
 </div>
-
-<style>
-	.backdrop {
-		background: linear-gradient(
-			0deg,
-			rgba(2, 0, 36, 0.2847732843137255) 0%,
-			rgba(255, 255, 255, 0) 9%
-		);
-	}
-</style>

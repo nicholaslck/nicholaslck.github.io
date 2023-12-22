@@ -5,6 +5,6 @@ export const load: PageServerLoad = async ({ params }) => {
 	const blogs = await getBlogs();
 
 	return {
-		blogs: blogs
+		blogs: blogs.filter((blog) => blog.frontmatter.published)
 	};
 };
