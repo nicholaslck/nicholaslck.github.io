@@ -22,8 +22,8 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Published', name: 'published', widget: 'boolean', default: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image', required: false }
       - { label: 'Excerpt', name: 'excerpt', widget: 'string', required: false }
 
@@ -34,9 +34,11 @@ collections:
     slug: 'proj-{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Abstract', name: 'abstract', widget: 'text' }
+      - { label: 'Published', name: 'published', widget: 'boolean', default: false }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'URL', name: 'url', widget: 'string', hint: 'Link to the project page' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image', required: false }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'string', required: false }
 
   - name: 'pages'
     label: 'Pages'
