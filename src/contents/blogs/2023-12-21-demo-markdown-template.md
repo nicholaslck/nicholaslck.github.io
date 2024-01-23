@@ -28,10 +28,10 @@ _Italic paragraph Italic paragraph Italic paragraph Italic paragraph Italic para
 
 `Code inline`
 
-[link](www.google.com)
-[www.google.com](www.google.com)
+[link](https://www.google.com)
+[www.google.com](https://www.google.com)
 
-[](www.google.com)[](www.google.com)
+https://www.google.com
 
 > Quote line
 >
