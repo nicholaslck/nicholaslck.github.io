@@ -1,0 +1,53 @@
+local_backend: true
+
+# backend:
+#   name: git-gateway
+#   branch: main
+
+backend:
+  name: github
+  repo: nicholaslck/nicholaslck.github.io
+
+publish_mode: editorial_workflow
+
+media_folder: 'static/media/uploads' # Media files will be stored in the repo under static/images/uploads
+public_folder: '/media/uploads' # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: 'blogs' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blogs' # Used in the UI
+    folder: 'src/contents/blogs' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Published', name: 'published', widget: 'boolean', default: false }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image', required: false }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'string', required: false }
+
+  - name: 'projects'
+    label: 'Projects'
+    folder: 'src/contents/projects'
+    create: true
+    slug: 'proj-{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Published', name: 'published', widget: 'boolean', default: false }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'URL', name: 'url', widget: 'string', hint: 'Link to the project page, if it is provided than the Body will be ignored.', required: false }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image', required: false }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'string', required: false }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - name: 'about-me'
+        label: 'About me'
+        file: 'src/contents/pages/about-me.md'
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Resume, name: resume, widget: file }
+          - { label: Body, name: body, widget: markdown }

@@ -1,25 +1,15 @@
-
 # Quick note
 
 - Using asdf to specify node version
 - use npm
 - Github.io page deploy from branch `gh-page`
 
-# create-svelte
+## How to start local cms
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+1. Set `local_backend: true` in static/admin/config.yml
+2. run `npx decap-server`
+3. open another terminal, run `npm run dev`
+4. Go to http://localhost:5173/admin
 
 ## Developing
 
@@ -43,3 +33,7 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+---
+
+The project was initiated using [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
