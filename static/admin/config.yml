@@ -7,8 +7,7 @@
 backend:
   name: github
   repo: nicholaslck/nicholaslck.github.io
-
-publish_mode: editorial_workflow
+  branch: main
 
 media_folder: 'static/media/uploads' # Media files will be stored in the repo under static/images/uploads
 public_folder: '/media/uploads' # The src attribute for uploaded media will begin with /images/uploads
