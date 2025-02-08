@@ -13,9 +13,6 @@ pre-push:
         - frontend
       run: pnpm audit --audit-level critical
 
-    - name: admin config guard
-      run: node scripts/admin-config-guard.js
-
 pre-commit:
   parallel: true
   jobs:

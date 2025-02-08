@@ -1,7 +1,6 @@
-local_backend: true
-
 backend:
   name: github
+  site_domain: cms.netlify.com
   repo: nicholaslck/nicholaslck.github.io
   branch: v2
 
