@@ -1,0 +1,22 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+lefthook: pnpm lefthook
+
+pre-push:
+  jobs:
+    - name: packages audit
+      tags:
+        - frontend
+      run: pnpm audit --audit-level critical
+
+pre-commit:
+  parallel: true
+  jobs:
+    - run: pnpm prettier --check {staged_files}
+      glob: '*.{js,ts,jsx,tsx,.svelte,.svx}'
+
+    - run: pnpm eslint --debug {staged_files}
+      glob: '*.{js,ts,jsx,tsx,.svelte,.svx}'
