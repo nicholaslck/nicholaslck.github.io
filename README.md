@@ -24,3 +24,14 @@ pnpm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Dev Tools
+
+- [x] Lefthook (https://lefthook.dev/)
+- [x] Prettier (https://prettier.io/)
+- [x] ESLint (https://eslint.org/)
+- [x] Vitest (https://vitest.dev/)
+- [x] Vite (https://vitejs.dev/)
+- [x] SvelteKit (https://kit.svelte.dev/)
+- [x] TailwindCSS (https://tailwindcss.com/)
+- [x] Paraglide (https://inlang.com/docs/guides/sveltekit)

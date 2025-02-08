@@ -1,0 +1,31 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: nicholaslck/nicholaslck.github.io
+  branch: v2
+
+media_folder: 'static/uploads' # Folder where media files will be stored
+public_folder: '/uploads' # Folder where media files will be accessible
+site_url: https://nicholaslck.github.io
+display_url: https://nicholaslck.github.io
+
+collections:
+  - name: 'blogs' # Name of the collection
+    label: 'Blogs' # Label for the collection
+    folder: 'content/blogs' # Folder where the posts are stored
+    create: true # Allow creating new posts
+    slug: '{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}-{{slug}}' # Slug format for the posts
+    fields: # Fields for the posts
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'configs'
+    label: 'Configs'
+    files:
+      - label: 'Global'
+        name: 'global'
+        file: 'content/configs/global.md'
+        fields:
+          - { label: Site title, name: site_title, widget: string }
+          - { label: Site description, name: site_description, widget: text }

@@ -42,6 +42,9 @@ importers:
       globals:
         specifier: ^15.14.0
         version: 15.14.0
+      js-yaml:
+        specifier: ^4.1.0
+        version: 4.1.0
       lefthook:
         specifier: ^1.10.10
         version: 1.10.10
