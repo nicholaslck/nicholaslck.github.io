@@ -13,6 +13,8 @@ const config = {
 		})
 	],
 
+	extensions: ['.svelte', '.svx', '.md'],
+
 	kit: {
 		adapter: adapter({
 			// default options are shown. On some platforms
@@ -23,9 +25,7 @@ const config = {
 			precompress: false,
 			strict: true
 		})
-	},
-
-	extensions: ['.svelte', '.svx', '.md']
+	}
 };
 
 export default config;
