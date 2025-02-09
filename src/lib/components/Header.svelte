@@ -15,7 +15,7 @@
 </script>
 
 <header class="container flex items-center justify-between pt-6">
-	<Tabs.Root value={current} class="w-[400px]">
+	<Tabs.Root value={current}>
 		<Tabs.List>
 			<a href="/about-me"><Tabs.Trigger value="about-me">About me</Tabs.Trigger></a>
 			<a href="/blogs"><Tabs.Trigger value="blogs">Blogs</Tabs.Trigger></a>
