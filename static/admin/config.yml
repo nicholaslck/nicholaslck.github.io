@@ -10,15 +10,6 @@ site_url: https://nicholaslck.github.io
 display_url: https://nicholaslck.github.io
 
 collections:
-  - name: 'blogs' # Name of the collection
-    label: 'Blogs' # Label for the collection
-    folder: 'content/blogs' # Folder where the posts are stored
-    create: true # Allow creating new posts
-    slug: '{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}-{{slug}}' # Slug format for the posts
-    fields: # Fields for the posts
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
   - name: 'configs'
     label: 'Configs'
     files:
@@ -28,3 +19,159 @@ collections:
         fields:
           - { label: Site title, name: site_title, widget: string }
           - { label: Site description, name: site_description, widget: text }
+
+  - name: 'blogs' # Name of the collection
+    label: 'Blogs' # Label for the collection
+    folder: 'content/blogs' # Folder where the posts are stored
+    create: true # Allow creating new posts
+    slug: '{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}-{{slug}}' # Slug format for the posts
+    fields: # Fields for the posts
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'projects'
+    label: 'Projects'
+    folder: 'content/projects'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Cover image', name: 'cover_image', widget: 'image' }
+      - {
+          label: 'URL',
+          name: 'url',
+          widget: 'string',
+          required: false,
+          hint: 'Redirect URL to the project page'
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - label: 'Resume'
+        name: 'resume'
+        file: 'content/pages/resume.md'
+        fields:
+          - { label: Full name, name: full_name, widget: string }
+          - { label: Nick name, name: nick_name, widget: string }
+          - { label: Current position, name: current_position, widget: string }
+          - { label: Phone, name: phone, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Profile picture, name: profile_picture, widget: image }
+          - { label: Introduction, name: introduction, widget: text }
+          - {
+              label: Educations,
+              name: educations,
+              widget: list,
+              allow_add: true,
+              add_to_top: true,
+              collapsed: true,
+              summary: '{{fields.title}}',
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Institution, name: institution, widget: string },
+                  { label: Degree, name: degree, widget: string },
+                  { label: Start date, name: start_date, widget: datetime, time_format: false },
+                  {
+                    label: End date,
+                    name: end_date,
+                    widget: datetime,
+                    time_format: false,
+                    required: false
+                  },
+                  { label: Currently studying, name: is_current, widget: boolean, default: false }
+                ]
+            }
+          - {
+              label: Certifications,
+              name: certifications,
+              widget: list,
+              allow_add: true,
+              add_to_top: true,
+              collapsed: true,
+              summary: '{{fields.title}}',
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Institution, name: institution, widget: string },
+                  { label: Start date, name: start_date, widget: datetime, time_format: false },
+                  {
+                    label: End date,
+                    name: end_date,
+                    widget: datetime,
+                    time_format: false,
+                    required: false
+                  }
+                ]
+            }
+          - {
+              label: Work Experiences,
+              name: work_experiences,
+              widget: list,
+              allow_add: true,
+              add_to_top: true,
+              collapsed: true,
+              summary: '{{fields.title}}',
+              fields:
+                [
+                  { label: Company, name: company, widget: string },
+                  { label: Position, name: position, widget: string },
+                  { label: Start date, name: start_date, widget: datetime, time_format: false },
+                  {
+                    label: End date,
+                    name: end_date,
+                    widget: datetime,
+                    time_format: false,
+                    required: false
+                  },
+                  { label: Currently working, name: is_current, widget: boolean, default: false },
+                  { label: Description, name: description, widget: text, required: false }
+                ]
+            }
+          - {
+              label: Projects,
+              name: projects,
+              widget: list,
+              allow_add: true,
+              add_to_top: true,
+              collapsed: true,
+              summary: '{{fields.title}}',
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: text },
+                  {
+                    label: Type,
+                    name: type,
+                    widget: select,
+                    options: ['work_project', 'self_project', 'freelance_project', 'mphil_project'],
+                    default: 'work_project'
+                  },
+                  {
+                    label: Related work experience,
+                    name: related_work_experience,
+                    widget: string,
+                    hint: 'Only need to be filled for work project',
+                    required: false
+                  },
+                  {
+                    label: Related project,
+                    name: related_project,
+                    widget: relation,
+                    required: false,
+                    collection: 'projects',
+                    value_field: 'slug',
+                    display_fields: ['title']
+                  },
+                  {
+                    label: URL,
+                    name: url,
+                    widget: string,
+                    required: false,
+                    hint: 'Only when related project is None'
+                  }
+                ]
+            }
