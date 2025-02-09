@@ -19,6 +19,7 @@ collections:
         fields:
           - { label: Site title, name: site_title, widget: string }
           - { label: Site description, name: site_description, widget: text }
+          - { label: Avatar, name: avatar, widget: image }
 
   - name: 'blogs' # Name of the collection
     label: 'Blogs' # Label for the collection
