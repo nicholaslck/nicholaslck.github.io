@@ -4,4 +4,5 @@
 <ul>
 	<li><a href="blogs">Blog list</a></li>
 	<li><a href="projects">Project list</a></li>
+	<li><a href="about-me">About me</a></li>
 </ul>
