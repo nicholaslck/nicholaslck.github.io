@@ -4,4 +4,3 @@ description: The objective of this research project was to convert color images 
 cover_image: /uploads/predreshalf_cover.jpg
 url: https://nicholaslck.github.io/predreshalf
 ---
-

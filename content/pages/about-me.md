@@ -147,4 +147,3 @@ projects:
     related_project: test-project
     url: ''
 ---
-
