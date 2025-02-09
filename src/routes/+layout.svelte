@@ -5,8 +5,13 @@
 	import { i18n } from '$lib/i18n';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	let { children } = $props();
+	import SEO from '$lib/components/SEO.svelte';
+
+	let { children, data } = $props();
+	let global = $derived(data.config.global);
 </script>
+
+<SEO config={global} />
 
 <ModeWatcher />
 <ParaglideJS {i18n}>
