@@ -2,4 +2,4 @@
 	let { data } = $props();
 </script>
 
-<h1>{JSON.stringify(data)}</h1>
+<h1>{data.frontmatter?.full_name}</h1>
