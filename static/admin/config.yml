@@ -50,9 +50,9 @@ collections:
   - name: 'pages'
     label: 'Pages'
     files:
-      - label: 'Resume'
-        name: 'resume'
-        file: 'content/pages/resume.md'
+      - label: 'About me'
+        name: 'about-me'
+        file: 'content/pages/about-me.md'
         fields:
           - { label: Full name, name: full_name, widget: string }
           - { label: Nick name, name: nick_name, widget: string }
