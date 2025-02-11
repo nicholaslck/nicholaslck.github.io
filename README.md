@@ -35,3 +35,8 @@ You can preview the production build with `npm run preview`.
 - [x] SvelteKit (https://kit.svelte.dev/)
 - [x] TailwindCSS (https://tailwindcss.com/)
 - [x] Paraglide (https://inlang.com/docs/guides/sveltekit)
+
+## CMS Auth
+
+This project use its own custom OAuth proxy to handle authentication with the CMS.
+The project is located [here](https://github.com/nicholaslck/decap-proxy) and hosted on Cloudflare Workers.
