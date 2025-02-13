@@ -1,4 +1,4 @@
-import * as theme from 'tailwindcss/defaultTheme';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 import tailwindcssAnimate from 'tailwindcss-animate';
 
 /** @type {import('tailwindcss').Config} */
@@ -7,6 +7,13 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	safelist: ['dark'],
 	theme: {
+		container: {
+			center: true,
+			padding: '2rem',
+			screens: {
+				'2xl': '1400px'
+			}
+		},
 		extend: {
 			colors: {
 				border: 'hsl(var(--border) / <alpha-value>)',
@@ -54,12 +61,13 @@ const config = {
 				}
 			},
 			borderRadius: {
+				xl: 'calc(var(--radius) + 4px)',
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: [...theme.default.fontFamily.sans]
+				sans: [...fontFamily.sans]
 			},
 			keyframes: {
 				'accordion-down': {
@@ -80,9 +88,9 @@ const config = {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'caret-blink': 'caret-blink 1.25s ease-out infinite'
 			}
-		},
-		plugins: [tailwindcssAnimate]
-	}
+		}
+	},
+	plugins: [tailwindcssAnimate]
 };
 
 export default config;

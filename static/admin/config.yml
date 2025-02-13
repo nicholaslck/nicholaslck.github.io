@@ -176,3 +176,15 @@ collections:
                   }
                 ]
             }
+      - label: 'Blog list'
+        name: 'blog-list'
+        file: 'content/pages/blog-list.md'
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: text }
+      - label: 'Project list'
+        name: 'project-list'
+        file: 'content/pages/project-list.md'
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: text }

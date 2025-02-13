@@ -4,18 +4,16 @@
 	import { buttonVariants } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Avatar from '$lib/components/ui/avatar';
-	import { Skeleton } from '$lib/components/ui/skeleton';
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 	import { resetMode, setMode } from 'mode-watcher';
 
+	const avatar = $derived(page.data?.config.global.avatar as string | undefined);
 	const current = $derived.by(() => {
 		const segments = page.url.pathname.split('/');
 		if (segments.length < 2) return '';
 		return segments[1];
 	});
-
-	const avatar = $derived(page.data.config.global.avatar);
 </script>
 
 <header class="container flex items-center justify-between pt-6">

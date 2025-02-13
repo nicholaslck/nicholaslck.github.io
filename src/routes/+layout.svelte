@@ -17,7 +17,7 @@
 <ParaglideJS {i18n}>
 	<Header />
 
-	<section class="container pt-12">
+	<section class="container py-12">
 		{@render children()}
 	</section>
 

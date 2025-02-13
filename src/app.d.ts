@@ -4,7 +4,12 @@ declare global {
 	namespace App {
 		// interface Error {}
 		// interface Locals {}
-		// interface PageData {}
+		interface PageData {
+			config: {
+				global: Record<string, unknown>;
+				[key: string]: unknown;
+			};
+		}
 		// interface PageState {}
 		// interface Platform {}
 	}

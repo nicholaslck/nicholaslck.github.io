@@ -15,15 +15,21 @@ export enum ContentDirectory {
 	Configs = CONTENT_DIR + 'configs/'
 }
 
-export const readMarkdownData = (path: string): MarkdownData => {
-	if (!glob.sync(path).length) throw new Error(`File does not exist at ${path}`);
+const getSlug = (path: string) => {
+	const slug = path.split('/').pop()?.split('.')[0];
+	if (!slug) throw new Error('Invalid path ' + path);
+	return slug;
+};
+
+export const readMarkdownData = async (path: string): Promise<MarkdownData> => {
+	if (!(await glob(path)).length) throw new Error(`File does not exist at ${path}`);
 
 	const slug = getSlug(path);
-
 	const { data, content } = matter.read(path);
+
 	return cloneDeep<MarkdownData>({
 		slug,
-		frontmatter: data,
+		frontmatter: data ?? {},
 		body: {
 			raw: content,
 			html: md.render(content)
@@ -31,19 +37,13 @@ export const readMarkdownData = (path: string): MarkdownData => {
 	});
 };
 
-const getSlug = (path: string) => {
-	const slug = path.split('/').pop()?.split('.')[0];
-	if (!slug) throw new Error('Invalid path ' + path);
-	return slug;
-};
-
 /** @returns an array of slugs */
-export const listContents = (directory: ContentDirectory) => {
-	const paths = glob.sync(directory + '*.md', { ignore: 'node_modules/**' });
+export const listContents = async (directory: ContentDirectory) => {
+	const paths = await glob(directory + '*.md', { ignore: 'node_modules/**' });
 	return paths.map((p) => getSlug(p));
 };
 
 /** @returns the MarkdownData for a given slug */
-export const readContents = (slug: string, directory: ContentDirectory) => {
+export const readContents = async (slug: string, directory: ContentDirectory) => {
 	return readMarkdownData(directory + slug + '.md');
 };
