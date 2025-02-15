@@ -18,6 +18,10 @@
 
 <Separator class="mb-8" />
 
-{#each items as item (item.slug)}
-	{@render children?.(item)}
-{/each}
+<ol>
+	{#each items as item (item.slug)}
+		<li class="pb-16">
+			{@render children?.(item)}
+		</li>
+	{/each}
+</ol>

@@ -28,6 +28,8 @@ collections:
     slug: '{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}-{{slug}}' # Slug format for the posts
     fields: # Fields for the posts
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Created at', name: 'created_at', widget: 'datetime', default: '{{now}}' }
+      - { label: 'Abstract', name: 'abstract', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 
   - name: 'projects'
