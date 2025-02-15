@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { datetimeFormatter } from '$lib/utils';
-	import { Button } from '../ui/button';
+	import { Button } from './ui/button';
 
 	interface Props {
 		href: string;

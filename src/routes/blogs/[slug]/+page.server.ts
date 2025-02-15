@@ -1,8 +1,8 @@
 import { readContents, ContentDirectory, listContents } from '$lib/server/data.js';
 
 export const load = async ({ params }) => {
-	const markdownData = await readContents(params.slug, ContentDirectory.Blogs);
-	return markdownData;
+	const item = await readContents(params.slug, ContentDirectory.Blogs);
+	return { item };
 };
 
 export const entries = async () => {

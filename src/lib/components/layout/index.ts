@@ -1,4 +1,4 @@
 import Listing from './Listing.svelte';
-import ListingItem from './ListingItem.svelte';
+import PageContent from './PageContent.svelte';
 
-export { Listing, ListingItem };
+export { Listing, PageContent };

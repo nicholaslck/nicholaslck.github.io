@@ -1,14 +1,15 @@
 <script lang="ts">
 	import * as Layout from '$lib/components/layout';
+	import ListingItem from '$lib/components/ListingItem.svelte';
 
-	let { data } = $props();
-	let { heading, subheading } = $derived(data.config.blogList);
-	let items = $derived(data.items);
+	const { data } = $props();
+	const { heading, subheading } = $derived(data.config.blogList);
+	const items = $derived(data.items);
 </script>
 
 <Layout.Listing heading={heading as string} subheading={subheading as string} {items}>
 	{#snippet children(item)}
-		<Layout.ListingItem
+		<ListingItem
 			href={`/blogs/${item.slug}`}
 			created_at={item.frontmatter.created_at as string}
 			title={item.frontmatter.title as string}
