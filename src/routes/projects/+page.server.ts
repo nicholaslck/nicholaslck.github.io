@@ -1,11 +1,16 @@
 import { ContentDirectory, listContents, readContents } from '$lib/server/data';
 
-export const load = async () => {
+export const load = async ({ parent }) => {
+	const { frontmatter } = await readContents('project-list', ContentDirectory.Pages);
+
 	const slugs = await listContents(ContentDirectory.Projects);
-	const list = await Promise.all(
+	const items = await Promise.all(
 		slugs.map((slug) => readContents(slug, ContentDirectory.Projects))
 	);
+
+	const { config } = await parent();
 	return {
-		list
+		config: { ...config, projectList: frontmatter },
+		items
 	};
 };

@@ -4,7 +4,7 @@
 
 	interface Props {
 		href: string;
-		created_at: string;
+		created_at?: string;
 		title: string;
 		abstract: string;
 		moreButtonText: string;
@@ -14,8 +14,12 @@
 </script>
 
 <a {href}>
-	<p class="muted">{datetimeFormatter(created_at)}</p>
+	{#if created_at}
+		<p class="muted">{datetimeFormatter(created_at)}</p>
+	{/if}
+
 	<div class="large mt-2">{title}</div>
-	<p class="muted !mt-2 ps-4">{abstract}</p>
-	<Button variant="link" {href}>{moreButtonText}</Button>
+
+	<p class="muted !mt-2 ps-0">{abstract}</p>
+	<Button class="ps-0" variant="link" {href}>{moreButtonText}</Button>
 </a>
