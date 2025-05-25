@@ -40,3 +40,35 @@ You can preview the production build with `npm run preview`.
 
 This project use its own custom OAuth proxy to handle authentication with the CMS.
 The project is located [here](https://github.com/nicholaslck/decap-proxy) and hosted on Cloudflare Workers.
+
+## Progress
+
+- [x] Initial setup
+- [x] Add CMS auth
+- [x] Add CMS content
+- [x] Blog list page
+- [x] Blog detail page
+- [x] Projects list page
+- [x] Projects detail page
+- [ ] Home page
+- [ ] About page
+- [ ] Add SEO
+- [ ] Add sitemap
+- [ ] Add robots.txt
+- [ ] Add analytics
+- [ ] Add social media links
+- [ ] Add favicon
+- [ ] Add PWA support
+- [x] Add dark mode support
+- [ ] Add RSS feed
+- [ ] Add comments
+- [ ] Add search functionality
+- [ ] Add pagination
+- [ ] Add tags and categories
+- [ ] Add newsletter signup
+- [ ] Add social media sharing
+- [ ] Add author page
+- [ ] Add related posts
+- [ ] Add custom 404 page
+- [ ] Add custom 500 page
+- [ ] Add custom error handling
