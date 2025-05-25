@@ -26,7 +26,7 @@
 
 	<Tabs.Root value={current}>
 		<Tabs.List>
-			<a href="/about-me"><Tabs.Trigger value="about-me">About me</Tabs.Trigger></a>
+			<!-- <a href="/about-me"><Tabs.Trigger value="about-me">About me</Tabs.Trigger></a> -->
 			<a href="/blogs"><Tabs.Trigger value="blogs">Blogs</Tabs.Trigger></a>
 			<a href="/projects"><Tabs.Trigger value="projects">Projects</Tabs.Trigger></a>
 		</Tabs.List>

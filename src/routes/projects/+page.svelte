@@ -10,10 +10,11 @@
 <Layout.Listing heading={heading as string} subheading={subheading as string} {items}>
 	{#snippet children(item)}
 		<ListingItem
-			href={`/projects/${item.slug}`}
+			href={item.frontmatter.url ? (item.frontmatter.url as string) : `/projects/${item.slug}`}
 			title={item.frontmatter.title as string}
 			abstract={item.frontmatter.description as string}
-			moreButtonText="Read more..."
+			moreButtonText="Read more"
+			isExternal={item.frontmatter.url ? true : false}
 		/>
 	{/snippet}
 </Layout.Listing>

@@ -14,7 +14,7 @@
 			created_at={item.frontmatter.created_at as string}
 			title={item.frontmatter.title as string}
 			abstract={item.frontmatter.abstract as string}
-			moreButtonText="Read more..."
+			moreButtonText="Read more"
 		/>
 	{/snippet}
 </Layout.Listing>
