@@ -14,15 +14,18 @@
 	let { goBackUrl, heading, created_at, children }: Props = $props();
 </script>
 
-{#if goBackUrl}
-	<button onclick={() => goBack(goBackUrl)}>
-		<SquareArrowLeft size={32} strokeWidth={1.5} />
-	</button>
-{/if}
+<div class="flex items-start space-x-8">
+	{#if goBackUrl}
+		<button class="mt-1" onclick={() => goBack(goBackUrl)}>
+			<SquareArrowLeft size={32} strokeWidth={1.5} />
+		</button>
+	{/if}
 
-<p class="muted">{datetimeFormatter(created_at)}</p>
-
-<h1 class="mt-2 pb-6">{heading}</h1>
+	<div>
+		<h1>{heading}</h1>
+		<p class="muted pb-6">{datetimeFormatter(created_at)}</p>
+	</div>
+</div>
 
 <Separator class="mb-8" />
 

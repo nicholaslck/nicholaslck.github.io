@@ -21,16 +21,31 @@ collections:
           - { label: Site description, name: site_description, widget: text }
           - { label: Avatar, name: avatar, widget: image }
 
-  - name: 'blogs' # Name of the collection
-    label: 'Blogs' # Label for the collection
-    folder: 'content/blogs' # Folder where the posts are stored
-    create: true # Allow creating new posts
-    slug: '{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}-{{slug}}' # Slug format for the posts
-    fields: # Fields for the posts
+  - name: 'blogs'
+    label: 'Blogs'
+    folder: 'content/blogs'
+    create: true
+    slug: '{{uuid_shorter}}-{{slug}}'
+    sortable_fields:
+      fields: [title, created_at]
+      default:
+        field: created_at
+        direction: descending
+    fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Created at', name: 'created_at', widget: 'datetime', default: '{{now}}' }
       - { label: 'Abstract', name: 'abstract', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'tags'
+    label: 'Tags'
+    folder: 'content/tags'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Color', name: 'color', widget: 'color' }
 
   - name: 'projects'
     label: 'Projects'
