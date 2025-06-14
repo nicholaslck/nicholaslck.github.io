@@ -1,8 +1,7 @@
-<h1>Welcome to My Blog (developing)</h1>
+<script lang="ts">
+	import { page } from '$app/state';
+</script>
 
-<h2>List of pages</h2>
-<ul>
-	<li><a href="blogs">Blog list</a></li>
-	<li><a href="projects">Project list</a></li>
-	<li><a href="about-me">About me</a></li>
-</ul>
+<!-- Dynamic downscale from 8rem to 2.5rem -->
+
+<h1 class="mt-36">Software Engineer, adventurer,<br />and a great day dreamer</h1>

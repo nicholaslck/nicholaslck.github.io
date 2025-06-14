@@ -8,17 +8,57 @@
 	import Moon from 'lucide-svelte/icons/moon';
 	import { resetMode, setMode } from 'mode-watcher';
 
-	const avatar = $derived(page.data?.config.global.avatar as string | undefined);
+	const { avatarTransformY, avatarTransformScale } = $props<{
+		avatarTransformY: number;
+		avatarTransformScale: number;
+	}>();
+
 	const current = $derived.by(() => {
 		const segments = page.url.pathname.split('/');
 		if (segments.length < 2) return '';
 		return segments[1];
 	});
+
+	const avatar = $derived(page.data?.config.global.avatar as string | undefined);
+	const avatarTransformVar = $derived(
+		`translate(0, ${avatarTransformY}%) scale(${avatarTransformScale})`
+	);
+
+	let scrollY = $state(0);
+	let lastScrollY = $state(0);
+	let isScrollingDown = $state(false);
+	$effect(() => {
+		if (scrollY === lastScrollY) return;
+
+		isScrollingDown = scrollY > lastScrollY;
+		lastScrollY = scrollY;
+
+		if (scrollY > lastScrollY) {
+			// Scrolling down
+			isScrollingDown = true;
+			lastScrollY = scrollY;
+		}
+
+		if (scrollY < lastScrollY) {
+			// Scrolling up
+			isScrollingDown = false;
+			lastScrollY = scrollY;
+		}
+	});
 </script>
 
-<header class="container flex items-center justify-between pt-6">
+<svelte:window bind:scrollY />
+<header
+	class={[
+		'sticky container flex items-center justify-between pt-6',
+		isScrollingDown ? '-top-[100px]' : 'top-0'
+	]}
+>
 	<a href="/">
-		<Avatar.Root class="border-1">
+		<Avatar.Root
+			class="header-avatar origin-left border-1 "
+			style={'--avatar-transform: ' + avatarTransformVar}
+		>
 			<Avatar.Image src={avatar} alt="Nicholas" />
 			<Avatar.Fallback class="animate-pulse" />
 		</Avatar.Root>
@@ -49,3 +89,12 @@
 		</DropdownMenu.Content>
 	</DropdownMenu.Root>
 </header>
+
+<style>
+	header {
+		transition: top 0.3s ease-in-out;
+	}
+	:global(.header-avatar) {
+		transform: var(--avatar-transform, scale(1));
+	}
+</style>

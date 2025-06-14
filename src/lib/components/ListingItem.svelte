@@ -15,7 +15,7 @@
 	const { href, created_at, title, abstract, moreButtonText, isExternal }: Props = $props();
 </script>
 
-<a {href}>
+<a {href} target={ isExternal ? '_blank' : '_self'}>
 	{#if created_at}
 		<p class="muted">{datetimeFormatter(created_at)}</p>
 	{/if}
