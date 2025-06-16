@@ -7,11 +7,7 @@
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 	import { resetMode, setMode } from 'mode-watcher';
-
-	const { avatarTransformY, avatarTransformScale } = $props<{
-		avatarTransformY: number;
-		avatarTransformScale: number;
-	}>();
+	import { onMount } from 'svelte';
 
 	const current = $derived.by(() => {
 		const segments = page.url.pathname.split('/');
@@ -20,90 +16,105 @@
 	});
 
 	const avatar = $derived(page.data?.config.global.avatar as string | undefined);
+	let avatarTransform = $state({
+		yPercent: 0, // from 0% to 330%
+		scale: 1 // from 1 to 3.2
+	});
 	const avatarTransformVar = $derived(
-		`translate(0, ${avatarTransformY}%) scale(${avatarTransformScale})`
+		`translate(0, ${avatarTransform.yPercent}%) scale(${avatarTransform.scale})`
 	);
 
 	let scrollY = $state(0);
+	let headerHeight = $state(80);
+	let headerInnerOffsetTop = $state(0);
 	let lastScrollY = $state(0);
-	let lastPinnedScrollY = $state(0);
-	let isHeaderSticky = $state(false);
-	let isHeaderStickyShown = $state(true);
-	const throttleOffset = 160;
+	const headerContainerHeight = 80;
 
-	$effect(() => {
-		if (scrollY <= 0) {
-			// Reset the header state when at the top of the page
-			isHeaderSticky = false;
-			isHeaderStickyShown = true;
-		} else if (scrollY !== lastScrollY) {
-			const scrollingDown = scrollY > lastScrollY;
-			const scrollingDistance = Math.abs(scrollY - lastPinnedScrollY);
+	// redo scrolling with requestAnimationFrame
+	onMount(() => {
+		let ticking = false;
+		function onScroll() {
+			scrollY = window.scrollY;
 
-			if (scrollingDown) {
+			if (scrollY <= 0) {
+				// Reset the header state when at the top of the page
+				headerInnerOffsetTop = 0;
+			} else if (scrollY > lastScrollY) {
 				// scrolling down
-				isHeaderStickyShown = false;
-				lastPinnedScrollY = scrollY;
+				if (scrollY > headerInnerOffsetTop + headerContainerHeight) {
+					headerInnerOffsetTop = Math.max(0, scrollY - headerContainerHeight);
+				}
 			} else {
 				// scrolling up
-				if (scrollingDistance > throttleOffset) {
-					isHeaderSticky = true;
-					isHeaderStickyShown = true;
-					lastPinnedScrollY = scrollY;
+				if (scrollY < headerInnerOffsetTop) {
+					headerInnerOffsetTop = Math.max(0, scrollY);
 				}
 			}
+
+			headerHeight = headerContainerHeight + headerInnerOffsetTop; // must
+			lastScrollY = scrollY;
+			ticking = false;
 		}
-		lastScrollY = scrollY;
+		function scrollEventListener() {
+			if (ticking) return;
+			window.requestAnimationFrame(onScroll);
+			ticking = true;
+		}
+		window.addEventListener('scroll', scrollEventListener);
+		window.requestAnimationFrame(onScroll);
+		return () => {
+			window.removeEventListener('scroll', scrollEventListener);
+		};
 	});
 </script>
 
-<svelte:window bind:scrollY />
-<header
-	class={[
-		'container flex items-center justify-between pt-6 pb-4',
-		'bg-gradient-to-b from-gray-200 dark:from-gray-800 to-transparent',
-		isHeaderSticky ? 'sticky' : 'static',
-		isHeaderStickyShown ? 'top-0' : '-top-[100px]'
-	]}
->
-	<a href="/">
-		<Avatar.Root
-			class="header-avatar origin-left border-1 "
-			style={'--avatar-transform: ' + avatarTransformVar}
-		>
-			<Avatar.Image src={avatar} alt="Nicholas" />
-			<Avatar.Fallback class="animate-pulse" />
-		</Avatar.Root>
-	</a>
+<header class="absolute top-0 left-0 w-full" style="height: {headerHeight}px;">
+	<div style="height: {headerInnerOffsetTop}px;" aria-hidden="true"></div>
+	<div
+		class={[
+			'bg-gradient-to-b from-gray-200 to-transparent dark:from-gray-800',
+			'relative bottom-0 container flex w-full items-center justify-between pt-6 pb-4'
+		]}
+	>
+		<a href="/">
+			<Avatar.Root
+				class="header-avatar origin-left border-1 "
+				style={'--avatar-transform: ' + avatarTransformVar}
+			>
+				<Avatar.Image src={avatar} alt="Nicholas" />
+				<Avatar.Fallback class="animate-pulse" />
+			</Avatar.Root>
+		</a>
 
-	<Tabs.Root value={current}>
-		<Tabs.List>
-			<!-- <a href="/about-me"><Tabs.Trigger value="about-me">About me</Tabs.Trigger></a> -->
-			<a class="cursor-pointer" href="/blogs">
-				<Tabs.Trigger value="blogs">Blogs</Tabs.Trigger>
-			</a>
-			<a class="cursor-pointer" href="/projects">
-				<Tabs.Trigger value="projects">Projects</Tabs.Trigger>
-			</a>
-		</Tabs.List>
-	</Tabs.Root>
+		<Tabs.Root value={current}>
+			<Tabs.List>
+				<!-- <a href="/about-me"><Tabs.Trigger value="about-me">About me</Tabs.Trigger></a> -->
+				<a class="cursor-pointer" href="/blogs">
+					<Tabs.Trigger value="blogs">Blogs</Tabs.Trigger>
+				</a>
+				<a class="cursor-pointer" href="/projects">
+					<Tabs.Trigger value="projects">Projects</Tabs.Trigger>
+				</a>
+			</Tabs.List>
+		</Tabs.Root>
 
-	<DropdownMenu.Root>
-		<DropdownMenu.Trigger class={buttonVariants({ variant: 'outline', size: 'icon' })}>
-			<Sun
-				class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
-			/>
-			<Moon
-				class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
-			/>
-			<span class="sr-only">Toggle theme</span>
-		</DropdownMenu.Trigger>
-		<DropdownMenu.Content align="end">
-			<DropdownMenu.Item onclick={() => setMode('light')}>Light</DropdownMenu.Item>
-			<DropdownMenu.Item onclick={() => setMode('dark')}>Dark</DropdownMenu.Item>
-			<DropdownMenu.Item onclick={() => resetMode()}>System</DropdownMenu.Item>
-		</DropdownMenu.Content>
-	</DropdownMenu.Root>
+		<DropdownMenu.Root>
+			<DropdownMenu.Trigger class={buttonVariants({ variant: 'outline', size: 'icon' })}>
+				<Sun
+					class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
+				/>
+				<Moon
+					class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
+				/>
+				<span class="sr-only">Toggle theme</span>
+			</DropdownMenu.Trigger>
+			<DropdownMenu.Content align="end">
+				<DropdownMenu.Item onclick={() => setMode('light')}>Light</DropdownMenu.Item>
+				<DropdownMenu.Item onclick={() => setMode('dark')}>Dark</DropdownMenu.Item>
+				<DropdownMenu.Item onclick={() => resetMode()}>System</DropdownMenu.Item>
+			</DropdownMenu.Content>
+		</DropdownMenu.Root>
+	</div>
 </header>
 
 <style>

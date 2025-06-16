@@ -10,23 +10,15 @@
 
 	let { children, data } = $props();
 	let global = $derived(data.config.global);
-
-	let avatarTransformY = $state(0); // from 0% to 330%
-	let avatarTransformScale = $state(1); // from 1 to 3.2
-
-	// onMount(() => {
-	// 	window.addEventListener('scroll', handleScroll);
-	// 	return () => window.removeEventListener('scroll', handleScroll);
-	// });
 </script>
 
 <SEO config={global} />
 
 <ModeWatcher />
 <ParaglideJS {i18n}>
-	<Header {avatarTransformY} {avatarTransformScale} />
+	<Header />
 
-	<section class="container py-12">
+	<section class="container pt-32 pb-12">
 		{@render children()}
 	</section>
 
