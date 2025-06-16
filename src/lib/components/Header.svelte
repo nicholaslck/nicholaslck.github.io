@@ -26,32 +26,44 @@
 
 	let scrollY = $state(0);
 	let lastScrollY = $state(0);
-	let isScrollingDown = $state(false);
+	let lastPinnedScrollY = $state(0);
+	let isHeaderSticky = $state(false);
+	let isHeaderStickyShown = $state(true);
+	const throttleOffset = 160;
+
 	$effect(() => {
-		if (scrollY === lastScrollY) return;
+		if (scrollY <= 0) {
+			// Reset the header state when at the top of the page
+			isHeaderSticky = false;
+			isHeaderStickyShown = true;
+		} else if (scrollY !== lastScrollY) {
+			const scrollingDown = scrollY > lastScrollY;
+			const scrollingDistance = Math.abs(scrollY - lastPinnedScrollY);
 
-		isScrollingDown = scrollY > lastScrollY;
+			if (scrollingDown) {
+				// scrolling down
+				isHeaderStickyShown = false;
+				lastPinnedScrollY = scrollY;
+			} else {
+				// scrolling up
+				if (scrollingDistance > throttleOffset) {
+					isHeaderSticky = true;
+					isHeaderStickyShown = true;
+					lastPinnedScrollY = scrollY;
+				}
+			}
+		}
 		lastScrollY = scrollY;
-
-		if (scrollY > lastScrollY) {
-			// Scrolling down
-			isScrollingDown = true;
-			lastScrollY = scrollY;
-		}
-
-		if (scrollY < lastScrollY) {
-			// Scrolling up
-			isScrollingDown = false;
-			lastScrollY = scrollY;
-		}
 	});
 </script>
 
 <svelte:window bind:scrollY />
 <header
 	class={[
-		'sticky container flex items-center justify-between pt-6',
-		isScrollingDown ? '-top-[100px]' : 'top-0'
+		'container flex items-center justify-between pt-6 pb-4',
+		'bg-gradient-to-b from-gray-200 dark:from-gray-800 to-transparent',
+		isHeaderSticky ? 'sticky' : 'static',
+		isHeaderStickyShown ? 'top-0' : '-top-[100px]'
 	]}
 >
 	<a href="/">
@@ -67,8 +79,12 @@
 	<Tabs.Root value={current}>
 		<Tabs.List>
 			<!-- <a href="/about-me"><Tabs.Trigger value="about-me">About me</Tabs.Trigger></a> -->
-			<a href="/blogs"><Tabs.Trigger value="blogs">Blogs</Tabs.Trigger></a>
-			<a href="/projects"><Tabs.Trigger value="projects">Projects</Tabs.Trigger></a>
+			<a class="cursor-pointer" href="/blogs">
+				<Tabs.Trigger value="blogs">Blogs</Tabs.Trigger>
+			</a>
+			<a class="cursor-pointer" href="/projects">
+				<Tabs.Trigger value="projects">Projects</Tabs.Trigger>
+			</a>
 		</Tabs.List>
 	</Tabs.Root>
 
