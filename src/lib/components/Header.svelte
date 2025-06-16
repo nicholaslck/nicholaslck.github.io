@@ -9,6 +9,12 @@
 	import { resetMode, setMode } from 'mode-watcher';
 	import { onMount } from 'svelte';
 
+	let scrollY = $state(0);
+	let headerHeight = $state(80);
+	let headerInnerOffsetTop = $state(0);
+	let lastScrollY = $state(0);
+	const headerContainerHeight = 80;
+
 	const current = $derived.by(() => {
 		const segments = page.url.pathname.split('/');
 		if (segments.length < 2) return '';
@@ -16,19 +22,23 @@
 	});
 
 	const avatar = $derived(page.data?.config.global.avatar as string | undefined);
-	let avatarTransform = $state({
-		yPercent: 0, // from 0% to 330%
-		scale: 1 // from 1 to 3.2
+	let avatarTransform = $derived.by(() => {
+		if (page.url.pathname !== '/') {
+			return { yPercent: 0, scale: 1 };
+		} else {
+			const ratio = Math.max(160 - scrollY, 0) / 160; // from 0 to 1)
+			const yPercent = 330 * ratio; // from 0% to 330%
+			const scale = 2.2 * ratio + 1; // from 1 to 3.2
+
+			return {
+				yPercent,
+				scale
+			};
+		}
 	});
 	const avatarTransformVar = $derived(
 		`translate(0, ${avatarTransform.yPercent}%) scale(${avatarTransform.scale})`
 	);
-
-	let scrollY = $state(0);
-	let headerHeight = $state(80);
-	let headerInnerOffsetTop = $state(0);
-	let lastScrollY = $state(0);
-	const headerContainerHeight = 80;
 
 	// redo scrolling with requestAnimationFrame
 	onMount(() => {
@@ -39,6 +49,9 @@
 			if (scrollY <= 0) {
 				// Reset the header state when at the top of the page
 				headerInnerOffsetTop = 0;
+			} else if (page.url.pathname === '/' && scrollY < 160) {
+				// If on the homepage, adjust the header height based on scroll position
+				headerInnerOffsetTop = Math.max(0, scrollY);
 			} else if (scrollY > lastScrollY) {
 				// scrolling down
 				if (scrollY > headerInnerOffsetTop + headerContainerHeight) {
