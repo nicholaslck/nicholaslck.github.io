@@ -1,13 +1,17 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	import ListingItem from '$lib/components/ListingItem.svelte';
 	import SocialMediaButton from '$lib/components/SocialMediaButton.svelte';
 	import { Mail, Linkedin } from 'lucide-svelte/icons';
 	import { mode } from 'mode-watcher';
+
+	let { data } = $props();
 
 	let _mode = $state<string | undefined>('');
 	mode.subscribe((value) => {
 		_mode = value;
 	});
+
+	let blogItems = data.items;
 </script>
 
 <!-- Dynamic downscale from 8rem to 2.5rem -->
@@ -35,44 +39,15 @@
 	</div>
 </div>
 
-<p>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, eaque, aperiam quasi
-	perferendis asperiores ea assumenda debitis sequi doloremque saepe nobis voluptates ad, voluptas
-	iste quod est fugiat molestias!
-</p>
-
-<p>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, eaque, aperiam quasi
-	perferendis asperiores ea assumenda debitis sequi doloremque saepe nobis voluptates ad, voluptas
-	iste quod est fugiat molestias!
-</p>
-
-<p>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, eaque, aperiam quasi
-	perferendis asperiores ea assumenda debitis sequi doloremque saepe nobis voluptates ad, voluptas
-	iste quod est fugiat molestias!
-</p>
-
-<p>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, eaque, aperiam quasi
-	perferendis asperiores ea assumenda debitis sequi doloremque saepe nobis voluptates ad, voluptas
-	iste quod est fugiat molestias!
-</p>
-
-<p>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, eaque, aperiam quasi
-	perferendis asperiores ea assumenda debitis sequi doloremque saepe nobis voluptates ad, voluptas
-	iste quod est fugiat molestias!
-</p>
-
-<p>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, eaque, aperiam quasi
-	perferendis asperiores ea assumenda debitis sequi doloremque saepe nobis voluptates ad, voluptas
-	iste quod est fugiat molestias!
-</p>
-
-<p>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, eaque, aperiam quasi
-	perferendis asperiores ea assumenda debitis sequi doloremque saepe nobis voluptates ad, voluptas
-	iste quod est fugiat molestias!
-</p>
+<ol class="mt-20">
+	{#each blogItems as item (item.slug)}
+		<li class="pb-8">
+			<ListingItem
+				href={`/blogs/${item.slug}`}
+				created_at={item.frontmatter.created_at as string}
+				title={item.frontmatter.title as string}
+				abstract={item.frontmatter.abstract as string}
+			/>
+		</li>
+	{/each}
+</ol>
