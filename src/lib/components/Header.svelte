@@ -85,7 +85,7 @@
 	<div style="height: {headerInnerOffsetTop}px;" aria-hidden="true"></div>
 	<div
 		class={[
-			'bg-gradient-to-b from-gray-200 to-transparent dark:from-gray-800',
+			'bg-gradient-to-b from-primary/30 to-transparent',
 			'relative bottom-0 pt-6 pb-4'
 		]}
 	>
