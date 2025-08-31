@@ -3,8 +3,8 @@ name: Feature request
 about: Suggest an idea for this project
 title: "[Feature]"
 labels: ''
-assignees: nicholaslck
-
+assignees: ["nicholaslck"]
+projects: ["nicholaslck/6"]
 ---
 
 ### What problem is it about?
