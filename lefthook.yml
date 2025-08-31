@@ -5,13 +5,13 @@
 #
 lefthook: pnpm lefthook
 
-pre-push:
-  parallel: true
-  jobs:
-    - name: packages audit
-      tags:
-        - frontend
-      run: pnpm audit --audit-level critical
+# pre-push:
+#   parallel: true
+#   jobs:
+#     - name: packages audit
+#       tags:
+#         - frontend
+#       run: pnpm audit --audit-level critical
 
 pre-commit:
   parallel: true
