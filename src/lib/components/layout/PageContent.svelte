@@ -1,7 +1,7 @@
-<script lang="ts" generics="T extends Partial<{ slug: string }>">
+<script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { Separator } from '../ui/separator';
-	import { datetimeFormatter, goBack } from '$lib/utils';
+	import { dateFormatter, goBack } from '$lib/utils';
 	import { SquareArrowLeft } from 'lucide-svelte';
 
 	interface Props {
@@ -23,7 +23,7 @@
 
 	<div>
 		<h1>{heading}</h1>
-		<p class="muted pb-6">{datetimeFormatter(created_at)}</p>
+		<p class="muted pb-6">{dateFormatter(created_at)}</p>
 	</div>
 </div>
 

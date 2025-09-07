@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { datetimeFormatter } from '$lib/utils';
+	import { dateFormatter } from '$lib/utils';
 	import { Button } from './ui/button';
 	import { ExternalLink } from 'lucide-svelte';
 
@@ -15,10 +15,10 @@
 	const { href, created_at, title, abstract, moreButtonText, isExternal }: Props = $props();
 </script>
 
-<div class="hover:bg-accent p-4 pb-8 -m-4 rounded-md">
+<div class="hover:bg-accent -m-4 rounded-md p-4 pb-8">
 	<a {href} target={isExternal ? '_blank' : '_self'}>
 		{#if created_at}
-			<p class="muted">{datetimeFormatter(created_at)}</p>
+			<p class="muted">{dateFormatter(created_at)}</p>
 		{/if}
 
 		<div class="large mt-2">

@@ -14,6 +14,6 @@ export const load = async ({ parent }) => {
 
 	return {
 		config: { ...config },
-		items: items.slice(0, 3)
+		items: items.slice(0, 1)
 	};
 };

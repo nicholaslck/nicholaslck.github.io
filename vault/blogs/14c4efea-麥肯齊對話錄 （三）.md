@@ -4,7 +4,11 @@ created_at: 2025-05-30T01:09:30
 abstract: |-
   Howie 和加旋、Ivy 的對話錄，記錄了他們在麥肯齊的生活點滴。
   這是第三篇，記錄了他們的工作假期生活、文化差異和社會福利等話題。
+tags:
+  - WorkingHoliday
+  - NewZealand
 ---
+
 《麥肯齊對話錄 （三）》
 
 。
