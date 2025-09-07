@@ -7,4 +7,11 @@ views:
     name: Table
     order:
       - file.name
+      - title
       - created_at
+      - tags
+      - abstract
+    columnSize:
+      note.title: 256
+      note.created_at: 211
+      note.tags: 176

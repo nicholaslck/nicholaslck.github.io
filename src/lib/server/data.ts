@@ -47,3 +47,21 @@ export const listContents = async (directory: ContentDirectory) => {
 export const readContents = async (slug: string, directory: ContentDirectory) => {
 	return readMarkdownData(directory + slug + '.md');
 };
+
+/** @returns the MarkdownData for a given uid */
+export const readContentsByUid = async (uid: string, directory: ContentDirectory) => {
+	const paths = await glob(directory + '*.md', { ignore: 'node_modules/**' });
+	const promises = paths.map(async (path) => {
+		const { data } = matter.read(path);
+		if (data && data.uid === uid) {
+			return readMarkdownData(path);
+		}
+		throw new Error('UID mismatch'); // Reject if UID doesn't match
+	});
+
+	try {
+		return await Promise.any(promises);
+	} catch {
+		throw new Error(`File with uid ${uid} not found in ${directory}`);
+	}
+};
