@@ -6,13 +6,13 @@ import type { MarkdownData } from '$lib/types/markdown';
 
 const md = MarkdownIt();
 
-const CONTENT_DIR = 'content/';
+const VAULT_DIR = 'vault/';
 
 export enum ContentDirectory {
-	Blogs = CONTENT_DIR + 'blogs/',
-	Projects = CONTENT_DIR + 'projects/',
-	Pages = CONTENT_DIR + 'pages/',
-	Configs = CONTENT_DIR + 'configs/'
+	Blogs = VAULT_DIR + 'blogs/',
+	Projects = VAULT_DIR + 'projects/',
+	Pages = VAULT_DIR + 'pages/',
+	Configs = VAULT_DIR + 'configs/'
 }
 
 const getSlug = (path: string) => {

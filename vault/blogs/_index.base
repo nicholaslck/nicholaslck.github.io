@@ -1,0 +1,10 @@
+filters:
+  and:
+    - file.inFolder("blogs")
+    - file.ext != "base"
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - created_at

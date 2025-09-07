@@ -2,20 +2,14 @@
 	import ListingItem from '$lib/components/ListingItem.svelte';
 	import SocialMediaButton from '$lib/components/SocialMediaButton.svelte';
 	import { Mail, Linkedin } from 'lucide-svelte/icons';
-	import { mode } from 'mode-watcher';
 
 	let { data } = $props();
-
-	let _mode = $state<string | undefined>('');
-	mode.subscribe((value) => {
-		_mode = value;
-	});
-
 	let blogItems = data.items;
 </script>
 
 <!-- Dynamic downscale from 8rem to 2.5rem -->
 
+<!-- Headline -->
 <h1 class="mt-36">Software Engineer, adventurer,<br />and a great day dreamer</h1>
 
 <p class="text-muted-foreground">
@@ -39,6 +33,7 @@
 	</div>
 </div>
 
+<!-- Latest blog post -->
 <ol class="mt-20">
 	{#each blogItems as item (item.slug)}
 		<li class="pb-8">
@@ -51,3 +46,18 @@
 		</li>
 	{/each}
 </ol>
+
+<!-- Work experience highlight -->
+<div>Work experience</div>
+
+<!-- Project list entry -->
+<div>Projects</div>
+
+<!-- Pinned music -->
+<div>Music</div>
+
+<!-- Contact me -->
+<div>Contact me</div>
+
+<!-- Random Project Highlight -->
+<div>Random Project Highlight</div>
