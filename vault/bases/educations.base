@@ -1,0 +1,14 @@
+filters:
+  and:
+    - file.inFolder("educations")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - degree
+      - end_date
+      - institution
+      - is_current
+      - start_date
+      - title

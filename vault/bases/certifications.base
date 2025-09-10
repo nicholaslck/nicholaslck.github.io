@@ -1,0 +1,12 @@
+filters:
+  and:
+    - file.inFolder("certifications")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - end_date
+      - institution
+      - start_date
+      - title

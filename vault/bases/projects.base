@@ -1,0 +1,17 @@
+filters:
+  and:
+    - file.inFolder("projects")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - description
+      - related_project
+      - related_work_experience
+      - title
+      - type
+      - url
+    columnSize:
+      file.name: 231
+      note.description: 225

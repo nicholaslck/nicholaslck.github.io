@@ -4,7 +4,6 @@ created_at: 2019-06-23
 abstract: |-
   《Saint Margaret and the Dragon》
   係意大利畫家拉斐爾既作品，同一幅作品於維也納又有另一個版本，也是出自他的手筆。內容係講述聖女與龍博鬥，在另一個版本中的聖女手執著十字架，以防萬一被龍吞噬的時候能拯救自己。
-uid: c35170e3-9168-46cd-b070-b5c47d6dfac1
 ---
 
 ![](/uploads/IMG_6172.jpeg)
