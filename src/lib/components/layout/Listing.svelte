@@ -12,9 +12,9 @@
 	let { heading, subheading, items, children }: Props = $props();
 </script>
 
-<h1 class="pb-6">{heading}</h1>
+<h1 class="max-w-2xl pb-6">{heading}</h1>
 
-<p class="pb-6">{subheading}</p>
+<p class="max-w-2xl pb-6">{subheading}</p>
 
 <Separator class="mb-8" />
 

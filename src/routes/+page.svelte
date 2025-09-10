@@ -14,9 +14,9 @@
 <!-- Dynamic downscale from 8rem to 2.5rem -->
 
 <!-- Headline -->
-<h1 class="mt-36">Software Engineer, adventurer,<br />and a great day dreamer</h1>
+<h1 class="mt-36 max-w-2xl">Software Engineer, adventurer,<br />and a great day dreamer</h1>
 
-<p class="text-muted-foreground">
+<p class="text-muted-foreground max-w-2xl">
 	Hi, I’m Nicholas 👋 — a software engineer passionate about building full-stack applications and
 	integrating AI agents into real-world workflows. Currently on a working holiday in New Zealand, I
 	split my time between coding 👨‍💻, exploring the outdoors 🏞️, and contributing to open-source
