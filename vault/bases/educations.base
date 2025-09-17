@@ -6,9 +6,17 @@ views:
     name: Table
     order:
       - file.name
-      - degree
-      - end_date
       - institution
-      - is_current
+      - degree
       - start_date
+      - end_date
+      - is_current
       - title
+    sort:
+      - property: start_date
+        direction: DESC
+    columnSize:
+      note.institution: 255
+      note.degree: 153
+      note.start_date: 131
+      note.end_date: 129

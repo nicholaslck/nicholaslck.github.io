@@ -1,5 +1,5 @@
 ---
 name: personal
 description: personal stuff
-color: "#962bee"
+color: '#962bee'
 ---

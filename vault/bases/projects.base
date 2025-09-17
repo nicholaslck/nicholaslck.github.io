@@ -12,6 +12,14 @@ views:
       - title
       - type
       - url
+      - file.ctime
+      - date
+    sort:
+      - property: date
+        direction: DESC
     columnSize:
-      file.name: 231
+      file.name: 219
       note.description: 225
+      note.title: 119
+      note.type: 138
+      note.url: 115
