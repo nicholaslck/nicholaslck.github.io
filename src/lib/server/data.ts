@@ -6,7 +6,7 @@ import type { MarkdownData } from '$lib/types/markdown';
 
 const md = MarkdownIt();
 
-const VAULT_DIR = 'vault/';
+const VAULT_DIR = 'content/';
 
 export enum ContentDirectory {
 	Blogs = VAULT_DIR + 'blogs/',
