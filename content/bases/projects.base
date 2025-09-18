@@ -7,7 +7,6 @@ views:
     order:
       - file.name
       - description
-      - related_project
       - related_work_experience
       - title
       - type
@@ -15,6 +14,8 @@ views:
       - file.ctime
       - date
     sort:
+      - property: related_project
+        direction: DESC
       - property: date
         direction: DESC
     columnSize:

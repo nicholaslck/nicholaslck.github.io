@@ -63,6 +63,9 @@ collections:
           required: false,
           hint: 'Redirect URL to the project page'
         }
+      - { label: 'Type', name: 'type', widget: 'select', options: ['work_project', 'mphil_project', 'self_project', 'freelance_project'] }
+      - { label: 'Date', name: 'date', widget: 'datetime', time_format: false }
+      - { label: 'Related work experience', name: 'related_work_experience', widget: 'relation', collection: 'work_experiences', search_fields: ['company'], value_field: 'company', display_fields: ['company'], required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
 
   - name: 'educations'
@@ -70,13 +73,53 @@ collections:
     folder: 'content/educations'
     create: true
     slug: '{{slug}}'
+    sortable_fields:
+      fields: ['start_date', 'end_date']
+      default:
+        field: start_date
+        direction: descending
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Institution', name: 'institution', widget: 'string' }
       - { label: 'Degree', name: 'degree', widget: 'string' }
+      - { label: 'Start date', name: 'start_date', widget: 'datetime', time_format: false }
+      - { label: 'End date', name: 'end_date', widget: 'datetime', time_format: false }
+      - { label: 'Is current', name: 'is_current', widget: 'boolean' }
+
+  - name: 'certifications'
+    label: 'Certifications'
+    folder: 'content/certifications'
+    create: true
+    slug: '{{slug}}'
+    sortable_fields:
+      fields: ['start_date', 'end_date']
+      default:
+        field: start_date
+        direction: descending
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Institution', name: 'institution', widget: 'string' }
+      - { label: 'Start date', name: 'start_date', widget: 'datetime', time_format: false }
+      - { label: 'End date', name: 'end_date', widget: 'datetime', time_format: false }
+
+  - name: 'work_experiences'
+    label: 'Work Experiences'
+    folder: 'content/work_experiences'
+    create: true
+    slug: '{{company}}-{{position}}'
+    summary: '{{company}} - {{position}}'
+    sortable_fields:
+      fields: ['start_date', 'end_date']
+      default:
+        field: start_date
+        direction: descending
+    fields:
+      - { label: 'Company', name: 'company', widget: 'string' }
+      - { label: 'Position', name: 'position', widget: 'string' }
       - { label: 'Start date', name: 'start_date', widget: 'datetime' }
       - { label: 'End date', name: 'end_date', widget: 'datetime' }
       - { label: 'Is current', name: 'is_current', widget: 'boolean' }
+      - { label: 'Description', name: 'description', widget: 'text' }
 
   - name: 'pages'
     label: 'Pages'
