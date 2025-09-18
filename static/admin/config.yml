@@ -65,6 +65,19 @@ collections:
         }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
 
+  - name: 'educations'
+    label: 'Educations'
+    folder: 'content/educations'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Institution', name: 'institution', widget: 'string' }
+      - { label: 'Degree', name: 'degree', widget: 'string' }
+      - { label: 'Start date', name: 'start_date', widget: 'datetime' }
+      - { label: 'End date', name: 'end_date', widget: 'datetime' }
+      - { label: 'Is current', name: 'is_current', widget: 'boolean' }
+
   - name: 'pages'
     label: 'Pages'
     files:
