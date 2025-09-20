@@ -6,4 +6,3 @@ start_date: 2013-08-01
 end_date: 2017-07-31
 is_current: false
 ---
-

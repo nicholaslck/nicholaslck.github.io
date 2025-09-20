@@ -63,9 +63,23 @@ collections:
           required: false,
           hint: 'Redirect URL to the project page'
         }
-      - { label: 'Type', name: 'type', widget: 'select', options: ['work_project', 'mphil_project', 'self_project', 'freelance_project'] }
+      - {
+          label: 'Type',
+          name: 'type',
+          widget: 'select',
+          options: ['work_project', 'mphil_project', 'self_project', 'freelance_project']
+        }
       - { label: 'Date', name: 'date', widget: 'datetime', time_format: false }
-      - { label: 'Related work experience', name: 'related_work_experience', widget: 'relation', collection: 'work_experiences', search_fields: ['company'], value_field: 'company', display_fields: ['company'], required: false }
+      - {
+          label: 'Related work experience',
+          name: 'related_work_experience',
+          widget: 'relation',
+          collection: 'work_experiences',
+          search_fields: ['company'],
+          value_field: 'company',
+          display_fields: ['company'],
+          required: false
+        }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
 
   - name: 'educations'

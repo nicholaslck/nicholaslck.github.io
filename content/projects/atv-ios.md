@@ -7,4 +7,3 @@ date: 2018-01-01
 related_work_experience: TFI Digital Media Limited
 related_project: test-project
 ---
-

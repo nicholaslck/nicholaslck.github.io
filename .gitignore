@@ -27,3 +27,6 @@ src/lib/paraglide
 
 # Obsidian
 .obsidian
+
+# Velite
+.velite
