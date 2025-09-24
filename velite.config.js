@@ -31,6 +31,7 @@ const workExperiences = defineCollection({
 	name: 'WorkExperience',
 	pattern: 'work_experiences/**/*.md',
 	schema: s.object({
+		icon: s.image(imageOptions),
 		company: s.string(),
 		position: s.string(),
 		start_date: s.isodate(),

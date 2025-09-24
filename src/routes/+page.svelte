@@ -69,7 +69,13 @@
 				{@const endDate = experience.end_date ? new Date(experience.end_date) : new Date()}
 				{@const isCurrent = experience.is_current}
 				<div class="flex flex-nowrap items-center justify-start gap-4 py-4">
-					<div><Skeleton class="h-12 w-12" /></div>
+					<div>
+						<img
+							src={experience.icon.src}
+							alt={`${experience.company} logo`}
+							class="h-12 w-12 rounded-md object-cover"
+						/>
+					</div>
 					<div class="font-medium">{experience.company}</div>
 					<div class="text-muted-foreground flex-1 text-xs">{experience.position}</div>
 					<div class="text-muted-foreground text-xs">
@@ -82,10 +88,6 @@
 						</time>
 					</div>
 				</div>
-				<!-- icon -->
-				<!-- company name -->
-				<!-- position -->
-				<!-- duration -->
 			{/each}
 		</div>
 	</Box>

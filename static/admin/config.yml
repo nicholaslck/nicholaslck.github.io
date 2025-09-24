@@ -139,12 +139,13 @@ collections:
         field: start_date
         direction: descending
     fields:
+      - { label: 'Icon', name: 'icon', widget: 'image' }
       - { label: 'Company', name: 'company', widget: 'string' }
       - { label: 'Position', name: 'position', widget: 'string' }
       - { label: 'Start date', name: 'start_date', widget: 'datetime' }
-      - { label: 'End date', name: 'end_date', widget: 'datetime' }
+      - { label: 'End date', name: 'end_date', widget: 'datetime', required: false }
       - { label: 'Is current', name: 'is_current', widget: 'boolean' }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Description', name: 'description', widget: 'text', required: false }
 
   - name: 'pages'
     label: 'Pages'
