@@ -39,7 +39,7 @@
 
 <p class="max-w-2xl pb-6">{subheading}</p>
 
-<div class="mt-16 max-w-4xl border-l-2 pl-8">
+<div class="mt-16 max-w-4xl border-l-2 pl-3 md:pl-4 lg:pl-5">
 	<div class="relative mb-12">
 		<Input type="text" placeholder="Search articles..." bind:value={searchInput} />
 		<button
