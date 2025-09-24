@@ -11,9 +11,10 @@
 	{#snippet children(item)}
 		<ListingItem
 			href={item.slug}
-			date={item.created_at as string}
-			title={item.title as string}
-			abstract={item.abstract as string}
+			date={item.created_at}
+			title={item.title}
+			abstract={item.abstract}
+			tags={item.tags}
 		/>
 	{/snippet}
 </Layout.Listing>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SocialMediaButton from '$lib/components/SocialMediaButton.svelte';
+	import Tags from '$lib/components/Tags.svelte';
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import BoxDatetime from '$lib/components/ui/box/box-datetime.svelte';
 	import BoxNameTag from '$lib/components/ui/box/box-name-tag.svelte';
@@ -8,7 +9,8 @@
 	import { Mail, Linkedin } from 'lucide-svelte/icons';
 
 	let { data } = $props();
-	let blogItems = data.items;
+
+	let showProjectMore = $state(false);
 </script>
 
 <!-- Dynamic downscale from 8rem to 2.5rem -->
@@ -39,24 +41,22 @@
 
 <!-- Latest blog post -->
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6">
-	<Box class="md:col-span-3">
-		<BoxNameTag name="Latest blog" iconId="sparkles" />
-		<BoxDatetime datetime={blogItems[0].frontmatter.created_at} />
+	{#if data.latestBlog}
+		<Box class="md:col-span-3">
+			<BoxNameTag name="Latest blog" iconId="sparkles" />
+			<BoxDatetime datetime={data.latestBlog.created_at} />
 
-		<div class="body-primary text-lg font-semibold tracking-tight">
-			{blogItems[0].frontmatter.title as string}
-		</div>
+			<div class="body-primary text-lg font-semibold tracking-tight">
+				{data.latestBlog.title as string}
+			</div>
 
-		<div class="flex w-full flex-wrap gap-2">
-			{#each blogItems[0].frontmatter.tags as Array<string> as tag}
-				<Badge variant="secondary">{tag}</Badge>
-			{/each}
-		</div>
+			<Tags tags={data.latestBlog.tags} />
 
-		<div class="text-muted-foreground line-clamp-6 text-sm">
-			{blogItems[0].frontmatter.abstract}
-		</div>
-	</Box>
+			<div class="text-muted-foreground line-clamp-6 text-sm">
+				{data.latestBlog.abstract}
+			</div>
+		</Box>
+	{/if}
 
 	<!-- Work experience highlight -->
 	<Box class="md:col-span-3">
@@ -66,6 +66,33 @@
 	<!-- Project list entry -->
 	<Box class="md:col-span-2">
 		<BoxNameTag name="Projects" iconId="puzzle" />
+
+		<div
+			class="relative overflow-clip rounded-2xl"
+			role="button"
+			tabindex="0"
+			onmouseover={() => (showProjectMore = true)}
+			onmouseleave={() => (showProjectMore = false)}
+			onfocus={() => (showProjectMore = true)}
+			onblur={() => (showProjectMore = false)}
+			onkeydown={(e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					window.location.href = '/projects';
+				}
+			}}
+		>
+			<a href="/projects" tabindex="-1">
+				<img src={data.latestProject?.cover_image?.src} alt={data.latestProject?.title} />
+				{#if showProjectMore}
+					<div
+						class="absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center bg-gray-700/50"
+					>
+						<Button variant="secondary" class="hover:bg-secondary">View more</Button>
+					</div>
+				{/if}
+			</a>
+		</div>
 	</Box>
 
 	<!-- Embedded music -->

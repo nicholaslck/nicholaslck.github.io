@@ -1,17 +1,19 @@
 <script lang="ts">
+	import Tags from './Tags.svelte';
 	import BoxDatetime from './ui/box/box-datetime.svelte';
 	import Box from './ui/box/box.svelte';
 
 	interface Props {
 		href: string;
-		date?: string;
-		dateIsYearOnly?: boolean;
 		title: string;
 		abstract: string;
+		date?: string;
+		dateIsYearOnly?: boolean;
+		tags?: string[];
 		isExternal?: boolean;
 	}
 
-	const { href, date, title, abstract, isExternal, dateIsYearOnly }: Props = $props();
+	const { href, date, title, abstract, isExternal, dateIsYearOnly, tags }: Props = $props();
 </script>
 
 <div>
@@ -25,11 +27,9 @@
 				{title}
 			</div>
 
-			<!-- <div class="flex w-full flex-wrap gap-2">
-			{#each blogItems[0].frontmatter.tags as Array<string> as tag}
-				<Badge variant="secondary">{tag}</Badge>
-			{/each}
-		</div> -->
+			{#if tags}
+				<Tags {tags} />
+			{/if}
 
 			<div class="text-muted-foreground line-clamp-6 text-sm">
 				{abstract}

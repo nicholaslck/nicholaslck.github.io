@@ -1,5 +1,7 @@
 import { defineCollection, defineConfig, s } from 'velite';
 
+const imageOptions = { absoluteRoot: 'static' };
+
 // `s` is extended from Zod with some custom schemas,
 // you can also import re-exported `z` from `velite` if you don't need these extension schemas.
 
@@ -14,8 +16,8 @@ const projects = defineCollection({
 		type: s.enum(['work_project', 'mphil_project', 'self_project', 'freelance_project']),
 		date: s.isodate(), // input Date-like string, output ISO Date string.
 		related_work_experience: s.string().optional(),
-		slug: s.path() // auto generate slug from file path
-		// cover: s.image(), // input image relative path, output image object with blurImage.
+		slug: s.path(), // auto generate slug from file path
+		cover_image: s.image(imageOptions).optional() // input image relative path, output image object with blurImage.
 		// video: s.file().optional(), // input file relative path, output file public path.
 		// metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
 		// excerpt: s.excerpt(), // excerpt of markdown content
@@ -72,6 +74,7 @@ const blogs = defineCollection({
 		title: s.string(),
 		created_at: s.isodate(),
 		abstract: s.string(),
+		tags: s.array(s.string()),
 		slug: s.path(),
 		excerpt: s.excerpt(),
 		content: s.markdown()
