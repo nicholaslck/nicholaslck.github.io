@@ -18,9 +18,9 @@
 
 <Separator class="mb-8" />
 
-<ol>
+<ol class="border-l-2 pl-8 max-w-4xl">
 	{#each items as item (item.slug)}
-		<li class="pb-16">
+		<li class="pb-16 last:pb-0">
 			{@render children?.(item)}
 		</li>
 	{/each}

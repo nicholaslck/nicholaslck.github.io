@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { dateFormatter } from '$lib/utils';
+	import BoxDatetime from './ui/box/box-datetime.svelte';
+	import Box from './ui/box/box.svelte';
 	import { Button } from './ui/button';
 	import { ExternalLink } from 'lucide-svelte';
 
@@ -15,19 +17,24 @@
 	const { href, created_at, title, abstract, moreButtonText, isExternal }: Props = $props();
 </script>
 
-<div class="hover:bg-accent -m-4 rounded-md p-4 pb-8">
+<div>
 	<a {href} target={isExternal ? '_blank' : '_self'}>
-		{#if created_at}
-			<p class="muted">{dateFormatter(created_at)}</p>
-		{/if}
+		<Box class="hover:bg-accent md:col-span-3">
+			<BoxDatetime datetime={created_at} />
 
-		<div class="large mt-2">
-			{title}
-			{#if isExternal}
-				<ExternalLink class="inline w-5" />
-			{/if}
-		</div>
+			<div class="body-primary text-lg font-semibold tracking-tight">
+				{title}
+			</div>
 
-		<p class="muted !mt-2 ps-0">{abstract}</p>
+			<!-- <div class="flex w-full flex-wrap gap-2">
+			{#each blogItems[0].frontmatter.tags as Array<string> as tag}
+				<Badge variant="secondary">{tag}</Badge>
+			{/each}
+		</div> -->
+
+			<div class="text-muted-foreground line-clamp-6 text-sm">
+				{abstract}
+			</div>
+		</Box>
 	</a>
 </div>
