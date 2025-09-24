@@ -9,11 +9,8 @@
 	let { datetime, isYearOnly }: Props = $props();
 
 	let formattedDatetime = $derived.by(() => {
-		if (isYearOnly) {
-			return new Date(datetime).getFullYear().toString();
-		}
-
-		return dateFormatter(datetime);
+		const ignore = { day: isYearOnly, month: isYearOnly };
+		return dateFormatter(datetime, ignore);
 	});
 </script>
 

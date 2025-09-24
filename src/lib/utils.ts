@@ -15,15 +15,22 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & {
 	ref?: U | null;
 };
 
-export function dateFormatter(datetime: string | Date) {
+export function dateFormatter(
+	datetime: string | Date,
+	ignore?: {
+		day?: boolean;
+		month?: boolean;
+		year?: boolean;
+	}
+) {
 	if (typeof datetime === 'string') {
 		datetime = new Date(datetime);
 	}
 
 	return datetime.toLocaleDateString('en-UK', {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric'
+		year: ignore?.year ? undefined : 'numeric',
+		month: ignore?.month ? undefined : 'short',
+		day: ignore?.day ? undefined : 'numeric'
 	});
 }
 

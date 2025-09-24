@@ -7,6 +7,8 @@
 	import Box from '$lib/components/ui/box/box.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Mail, Linkedin } from 'lucide-svelte/icons';
+	import dayjs from 'dayjs';
+	import Skeleton from '$lib/components/ui/skeleton/skeleton.svelte';
 
 	let { data } = $props();
 
@@ -61,7 +63,31 @@
 	<!-- Work experience highlight -->
 	<Box class="md:col-span-3">
 		<BoxNameTag name="Experiences" iconId="waypoints" />
-		Experiences
+		<div class="h-60 w-full overflow-y-auto">
+			{#each data.experiences as experience (experience.slug)}
+				{@const startDate = new Date(experience.start_date)}
+				{@const endDate = experience.end_date ? new Date(experience.end_date) : new Date()}
+				{@const isCurrent = experience.is_current}
+				<div class="flex flex-nowrap items-center justify-start gap-4 py-4">
+					<div><Skeleton class="h-12 w-12" /></div>
+					<div class="font-medium">{experience.company}</div>
+					<div class="text-muted-foreground flex-1 text-xs">{experience.position}</div>
+					<div class="text-muted-foreground text-xs">
+						<time datetime={dayjs(startDate).format('YYYY-MM')}
+							>{dayjs(startDate).format('MMM YYYY')}</time
+						>
+						-
+						<time datetime={dayjs(endDate).format('YYYY-MM')}>
+							{isCurrent ? 'Present' : dayjs(endDate).format('MMM YYYY')}
+						</time>
+					</div>
+				</div>
+				<!-- icon -->
+				<!-- company name -->
+				<!-- position -->
+				<!-- duration -->
+			{/each}
+		</div>
 	</Box>
 	<!-- Project list entry -->
 	<Box class="md:col-span-2">

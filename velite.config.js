@@ -34,7 +34,7 @@ const workExperiences = defineCollection({
 		company: s.string(),
 		position: s.string(),
 		start_date: s.isodate(),
-		end_date: s.isodate(),
+		end_date: s.isodate().optional(),
 		is_current: s.boolean(),
 		description: s.string(),
 		slug: s.path()
