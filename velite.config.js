@@ -14,12 +14,12 @@ const projects = defineCollection({
 		type: s.enum(['work_project', 'mphil_project', 'self_project', 'freelance_project']),
 		date: s.isodate(), // input Date-like string, output ISO Date string.
 		related_work_experience: s.string().optional(),
-		slug: s.path(), // auto generate slug from file path
+		slug: s.path() // auto generate slug from file path
 		// cover: s.image(), // input image relative path, output image object with blurImage.
 		// video: s.file().optional(), // input file relative path, output file public path.
 		// metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
-		excerpt: s.excerpt().optional(), // excerpt of markdown content
-		content: s.markdown().optional() // transform markdown to html
+		// excerpt: s.excerpt(), // excerpt of markdown content
+		// content: s.markdown()
 	})
 	// more additional fields (computed fields)
 	// .transform((data) => ({ ...data, permalink: `/blog/${data.slug}` }))
@@ -35,8 +35,7 @@ const workExperiences = defineCollection({
 		end_date: s.isodate(),
 		is_current: s.boolean(),
 		description: s.string(),
-		slug: s.path(),
-		content: s.markdown().optional()
+		slug: s.path()
 	})
 });
 
@@ -50,8 +49,7 @@ const educations = defineCollection({
 		start_date: s.isodate(),
 		end_date: s.isodate(),
 		is_current: s.boolean(),
-		slug: s.path(),
-		content: s.markdown().optional()
+		slug: s.path()
 	})
 });
 
@@ -63,8 +61,7 @@ const certifications = defineCollection({
 		institution: s.string(),
 		start_date: s.isodate(),
 		end_date: s.isodate(),
-		slug: s.path(),
-		content: s.markdown().optional()
+		slug: s.path()
 	})
 });
 
@@ -76,8 +73,8 @@ const blogs = defineCollection({
 		created_at: s.isodate(),
 		abstract: s.string(),
 		slug: s.path(),
-		excerpt: s.excerpt().optional(),
-		content: s.markdown().optional()
+		excerpt: s.excerpt(),
+		content: s.markdown()
 	})
 });
 
@@ -88,8 +85,7 @@ const configs = defineCollection({
 		site_title: s.string(),
 		site_description: s.string(),
 		avatar: s.string(),
-		slug: s.path(),
-		content: s.markdown().optional()
+		slug: s.path()
 	})
 });
 
