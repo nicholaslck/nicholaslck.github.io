@@ -13,7 +13,6 @@
 			href={item.frontmatter.url ? (item.frontmatter.url as string) : `/projects/${item.slug}`}
 			title={item.frontmatter.title as string}
 			abstract={item.frontmatter.description as string}
-			moreButtonText="Read more"
 			isExternal={item.frontmatter.url ? true : false}
 		/>
 	{/snippet}

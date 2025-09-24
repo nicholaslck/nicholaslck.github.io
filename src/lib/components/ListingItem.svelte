@@ -10,17 +10,18 @@
 		created_at?: string;
 		title: string;
 		abstract: string;
-		moreButtonText?: string;
 		isExternal?: boolean;
 	}
 
-	const { href, created_at, title, abstract, moreButtonText, isExternal }: Props = $props();
+	const { href, created_at, title, abstract, isExternal }: Props = $props();
 </script>
 
 <div>
 	<a {href} target={isExternal ? '_blank' : '_self'}>
 		<Box class="hover:bg-accent md:col-span-3">
-			<BoxDatetime datetime={created_at} />
+			{#if created_at}
+				<BoxDatetime datetime={created_at} />
+			{/if}
 
 			<div class="body-primary text-lg font-semibold tracking-tight">
 				{title}
