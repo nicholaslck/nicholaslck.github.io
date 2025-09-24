@@ -2,4 +2,4 @@
 	let { data } = $props();
 </script>
 
-<h1>{data.slug + data.body?.html}</h1>
+<h1>{data.item.slug}</h1>

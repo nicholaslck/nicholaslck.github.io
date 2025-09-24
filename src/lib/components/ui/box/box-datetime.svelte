@@ -1,9 +1,20 @@
-<script>
+<script lang="ts">
 	import { dateFormatter } from '$lib/utils';
 
-	let { datetime } = $props();
+	interface Props {
+		datetime: string;
+		isYearOnly?: boolean;
+	}
 
-	let formattedDatetime = $derived(dateFormatter(datetime));
+	let { datetime, isYearOnly }: Props = $props();
+
+	let formattedDatetime = $derived.by(() => {
+		if (isYearOnly) {
+			return new Date(datetime).getFullYear().toString();
+		}
+
+		return dateFormatter(datetime);
+	});
 </script>
 
 <time class="body-secondary relative z-10 flex items-center pl-3.5 text-sm">
