@@ -1,18 +1,15 @@
-import { ContentDirectory, listContents, readContents } from '$lib/server/data';
+import { ContentDirectory, readContents } from '$lib/server/data';
+
+import { type Blog, blogs } from '$velite';
 
 export const load = async ({ parent }) => {
+	// TODO: move page markdown to config markdown
 	const { frontmatter } = await readContents('blog-list', ContentDirectory.Pages);
-
-	const slugs = await listContents(ContentDirectory.Blogs);
-	const items = await Promise.all(slugs.map((slug) => readContents(slug, ContentDirectory.Blogs)));
-
-	items.sort(
-		(a, b) =>
-			new Date(b.frontmatter.created_at as unknown as string).getTime() -
-			new Date(a.frontmatter.created_at as unknown as string).getTime()
-	);
-
 	const { config } = await parent();
+
+	const items: Blog[] = blogs.sort(
+		(a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+	);
 
 	return {
 		config: { ...config, blogList: frontmatter },
