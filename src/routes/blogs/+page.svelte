@@ -10,10 +10,10 @@
 <Layout.Listing heading={heading as string} subheading={subheading as string} {items}>
 	{#snippet children(item)}
 		<ListingItem
-			href={`/blogs/${item.slug}`}
-			created_at={item.frontmatter.created_at as string}
-			title={item.frontmatter.title as string}
-			abstract={item.frontmatter.abstract as string}
+			href={item.slug}
+			created_at={item.created_at as string}
+			title={item.title as string}
+			abstract={item.abstract as string}
 		/>
 	{/snippet}
 </Layout.Listing>
