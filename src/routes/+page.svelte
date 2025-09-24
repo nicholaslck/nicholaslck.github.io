@@ -1,8 +1,7 @@
 <script lang="ts">
 	import SocialMediaButton from '$lib/components/SocialMediaButton.svelte';
 	import Tags from '$lib/components/Tags.svelte';
-	import { Badge } from '$lib/components/ui/badge/index.js';
-	import BoxDatetime from '$lib/components/ui/box/box-datetime.svelte';
+	import Datetime from '$lib/components/Datetime.svelte';
 	import BoxNameTag from '$lib/components/ui/box/box-name-tag.svelte';
 	import Box from '$lib/components/ui/box/box.svelte';
 	import { Button } from '$lib/components/ui/button';
@@ -46,7 +45,7 @@
 	{#if data.latestBlog}
 		<Box class="md:col-span-3">
 			<BoxNameTag name="Latest blog" iconId="sparkles" />
-			<BoxDatetime datetime={data.latestBlog.created_at} />
+			<Datetime datetime={data.latestBlog.created_at} />
 
 			<div class="body-primary text-lg font-semibold tracking-tight">
 				{data.latestBlog.title as string}

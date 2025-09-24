@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Tags from './Tags.svelte';
-	import BoxDatetime from './ui/box/box-datetime.svelte';
+	import Datetime from './Datetime.svelte';
 	import Box from './ui/box/box.svelte';
 
 	interface Props {
@@ -20,7 +20,7 @@
 	<a {href} target={isExternal ? '_blank' : '_self'}>
 		<Box class="hover:bg-accent md:col-span-3">
 			{#if date}
-				<BoxDatetime datetime={date} isYearOnly={dateIsYearOnly} />
+				<Datetime datetime={date} isYearOnly={dateIsYearOnly} />
 			{/if}
 
 			<div class="body-primary text-lg font-semibold tracking-tight">

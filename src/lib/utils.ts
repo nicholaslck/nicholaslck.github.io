@@ -34,7 +34,7 @@ export function dateFormatter(
 	});
 }
 
-export function goBack(fallbackUrl: string | URL) {
+export function navigateBack(fallbackUrl?: string | URL) {
 	if (!fallbackUrl) throw new Error('fallbackUrl must be provided');
 
 	if (window.history.length <= 1) goto(fallbackUrl);
