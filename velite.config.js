@@ -25,18 +25,81 @@ const projects = defineCollection({
 	// .transform((data) => ({ ...data, permalink: `/blog/${data.slug}` }))
 });
 
-// TODO: define work_experiences collection
+const workExperiences = defineCollection({
+	name: 'WorkExperience',
+	pattern: 'work_experiences/**/*.md',
+	schema: s.object({
+		company: s.string(),
+		position: s.string(),
+		start_date: s.isodate(),
+		end_date: s.isodate(),
+		is_current: s.boolean(),
+		description: s.string(),
+		slug: s.path(),
+		content: s.markdown().optional()
+	})
+});
 
-// TODO: define education collection
+const educations = defineCollection({
+	name: 'Education',
+	pattern: 'educations/**/*.md',
+	schema: s.object({
+		title: s.string(),
+		institution: s.string(),
+		degree: s.string(),
+		start_date: s.isodate(),
+		end_date: s.isodate(),
+		is_current: s.boolean(),
+		slug: s.path(),
+		content: s.markdown().optional()
+	})
+});
 
-// TODO: define certifications collection
+const certifications = defineCollection({
+	name: 'Certification',
+	pattern: 'certifications/**/*.md',
+	schema: s.object({
+		title: s.string(),
+		institution: s.string(),
+		start_date: s.isodate(),
+		end_date: s.isodate(),
+		slug: s.path(),
+		content: s.markdown().optional()
+	})
+});
 
-// TODO: define blog collection
+const blogs = defineCollection({
+	name: 'Blog',
+	pattern: 'blogs/**/*.md',
+	schema: s.object({
+		title: s.string(),
+		created_at: s.isodate(),
+		abstract: s.string(),
+		slug: s.path(),
+		excerpt: s.excerpt().optional(),
+		content: s.markdown().optional()
+	})
+});
 
-// TODO: define configs collection
+const configs = defineCollection({
+	name: 'Config',
+	pattern: 'configs/**/*.md',
+	schema: s.object({
+		site_title: s.string(),
+		site_description: s.string(),
+		avatar: s.string(),
+		slug: s.path(),
+		content: s.markdown().optional()
+	})
+});
 
 export default defineConfig({
 	collections: {
-		projects
+		projects,
+		workExperiences,
+		educations,
+		certifications,
+		blogs,
+		configs
 	}
 });
