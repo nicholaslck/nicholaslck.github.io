@@ -11,7 +11,7 @@
 	{#snippet children(item)}
 		<ListingItem
 			href={item.slug}
-			created_at={item.created_at as string}
+			date={item.created_at as string}
 			title={item.title as string}
 			abstract={item.abstract as string}
 		/>

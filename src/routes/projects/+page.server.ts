@@ -1,17 +1,12 @@
-import { ContentDirectory, listContents, readContents } from '$lib/server/data';
+import { ContentDirectory, readContents } from '$lib/server/data';
+import { projects } from '$velite';
 
 export const load = async ({ parent }) => {
+	// TODO: move page markdown to config markdown
 	const { frontmatter } = await readContents('project-list', ContentDirectory.Pages);
 
-	const slugs = await listContents(ContentDirectory.Projects);
-	const items = await Promise.all(
-		slugs.map((slug) => readContents(slug, ContentDirectory.Projects))
-	);
-
-	items.sort(
-		(a, b) =>
-			new Date(b.frontmatter.date as string).getTime() -
-			new Date(a.frontmatter.date as string).getTime()
+	const items = projects.toSorted(
+		(a, b) => new Date(b.date as string).getTime() - new Date(a.date as string).getTime()
 	);
 
 	const { config } = await parent();
