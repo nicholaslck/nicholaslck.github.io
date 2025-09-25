@@ -21,9 +21,9 @@
 		if (color) {
 			segments.push(color);
 		}
-    if (color && darkModeColor) {
-      segments.push(darkModeColor);
-    }
+		if (color && darkModeColor) {
+			segments.push(darkModeColor);
+		}
 		return segments.join('/');
 	});
 </script>

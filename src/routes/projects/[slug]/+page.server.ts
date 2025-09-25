@@ -1,11 +1,15 @@
-import { readContents, ContentDirectory, listContents } from '$lib/server/data.js';
+import { projects } from '$velite';
+import { error } from '@sveltejs/kit';
 
 export const load = async ({ params }) => {
-	const markdownData = await readContents(params.slug, ContentDirectory.Projects);
-	return markdownData;
+	const project = projects.find((project) => project.slug.split('/').pop() === params.slug);
+
+	if (!project) return error(404, 'Blog not found');
+
+	return { item: project };
 };
 
 export const entries = async () => {
-	const slugs = await listContents(ContentDirectory.Projects);
+	const slugs = projects.map((project) => project.slug.split('/').pop()!);
 	return slugs.map((slug) => ({ slug }));
 };

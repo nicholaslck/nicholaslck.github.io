@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import { onMount } from 'svelte';
 	import { ModeWatcher } from 'mode-watcher';
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import { i18n } from '$lib/i18n';

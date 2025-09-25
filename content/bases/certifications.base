@@ -1,0 +1,16 @@
+filters:
+  and:
+    - file.inFolder("certifications")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - start_date
+      - end_date
+      - institution
+      - title
+    columnSize:
+      note.start_date: 132
+      note.end_date: 129
+      note.institution: 128

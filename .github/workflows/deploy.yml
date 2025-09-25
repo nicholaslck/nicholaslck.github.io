@@ -26,7 +26,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: build
+      - name: Build markdown contents
+        run: pnpm velite
+
+      - name: Build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: pnpm run build

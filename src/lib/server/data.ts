@@ -6,13 +6,13 @@ import type { MarkdownData } from '$lib/types/markdown';
 
 const md = MarkdownIt();
 
-const CONTENT_DIR = 'content/';
+const VAULT_DIR = 'content/';
 
 export enum ContentDirectory {
-	Blogs = CONTENT_DIR + 'blogs/',
-	Projects = CONTENT_DIR + 'projects/',
-	Pages = CONTENT_DIR + 'pages/',
-	Configs = CONTENT_DIR + 'configs/'
+	Blogs = VAULT_DIR + 'blogs/',
+	Projects = VAULT_DIR + 'projects/',
+	Pages = VAULT_DIR + 'pages/',
+	Configs = VAULT_DIR + 'configs/'
 }
 
 const getSlug = (path: string) => {
@@ -46,4 +46,22 @@ export const listContents = async (directory: ContentDirectory) => {
 /** @returns the MarkdownData for a given slug */
 export const readContents = async (slug: string, directory: ContentDirectory) => {
 	return readMarkdownData(directory + slug + '.md');
+};
+
+/** @returns the MarkdownData for a given uid */
+export const readContentsByUid = async (uid: string, directory: ContentDirectory) => {
+	const paths = await glob(directory + '*.md', { ignore: 'node_modules/**' });
+	const promises = paths.map(async (path) => {
+		const { data } = matter.read(path);
+		if (data && data.uid === uid) {
+			return readMarkdownData(path);
+		}
+		throw new Error('UID mismatch'); // Reject if UID doesn't match
+	});
+
+	try {
+		return await Promise.any(promises);
+	} catch {
+		throw new Error(`File with uid ${uid} not found in ${directory}`);
+	}
 };

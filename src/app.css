@@ -112,15 +112,23 @@ h1 {
 }
 
 h2 {
-	@apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+	@apply mt-8 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors;
 }
 
 h3 {
-	@apply scroll-m-20 text-2xl font-semibold tracking-tight;
+	@apply mt-7 scroll-m-20 text-2xl font-semibold tracking-tight;
 }
 
 h4 {
-	@apply scroll-m-20 text-xl font-semibold tracking-tight;
+	@apply mt-6 scroll-m-20 text-xl font-semibold tracking-tight;
+}
+
+h5 {
+	@apply mt-6 scroll-m-20 text-xl font-semibold tracking-tight;
+}
+
+h6 {
+	@apply mt-5 scroll-m-20 text-lg font-semibold tracking-tight;
 }
 
 p {
@@ -131,28 +139,107 @@ blockquote {
 	@apply mt-6 border-l-2 pl-6 italic;
 }
 
-ul {
+ul,
+ol {
 	@apply leading-7 [&:not(:first-child)]:mt-6;
 }
 
-code {
-	@apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
-}
-
+.lead,
 p.lead {
 	@apply text-muted-foreground text-xl;
 }
 
-div.large,
+.large,
 p.large {
 	@apply text-lg font-semibold;
 }
 
-small,
+.small,
 p.small {
 	@apply text-sm leading-none font-medium;
 }
 
+.muted,
 p.muted {
 	@apply text-muted-foreground text-sm;
+}
+
+/* TODO: code block styling */
+article.content {
+	h1 {
+		@apply mt-10 lg:mt-12;
+	}
+	h2 {
+		/* empty */
+	}
+	h3 {
+		/* empty */
+	}
+
+	h4 {
+		/* empty */
+	}
+
+	h5 {
+		/* empty */
+	}
+
+	h6 {
+		/* empty */
+	}
+
+	p {
+		/* empty */
+	}
+
+	a {
+		@apply text-primary underline-offset-4 hover:underline;
+	}
+
+	table {
+		@apply mx-auto my-6 w-fit border-collapse px-8;
+
+		th {
+			@apply border-b px-4 py-2 text-center font-semibold;
+		}
+		td {
+			@apply border-b px-4 py-2;
+		}
+	}
+
+	ul {
+		@apply list-inside list-disc leading-7 [&:not(:first-child)]:mt-6;
+	}
+
+	ul ul {
+		@apply mt-0! list-[circle] ps-6;
+	}
+
+	ul ul ul {
+		@apply list-[square];
+	}
+
+	ol {
+		@apply list-inside list-decimal leading-7 [&:not(:first-child)]:mt-6;
+	}
+	ol ol {
+		@apply mt-0! list-[lower-alpha] ps-6;
+	}
+	ol ol ol {
+		@apply list-[lower-roman];
+	}
+
+	pre.code {
+		@apply my-6 rounded-2xl p-6;
+	}
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+	color: var(--shiki-dark) !important;
+	background-color: var(--shiki-dark-bg) !important;
+	/* Optional, if you also want font styles */
+	font-style: var(--shiki-dark-font-style) !important;
+	font-weight: var(--shiki-dark-font-weight) !important;
+	text-decoration: var(--shiki-dark-text-decoration) !important;
 }

@@ -1,32 +1,53 @@
-<script lang="ts" generics="T extends Partial<{ slug: string }>">
+<script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { Separator } from '../ui/separator';
-	import { datetimeFormatter, goBack } from '$lib/utils';
-	import { SquareArrowLeft } from 'lucide-svelte';
+	import { navigateBack } from '$lib/utils';
+	import { ArrowLeft } from 'lucide-svelte';
+	import dayjs from 'dayjs';
+	import Tags from '../Tags.svelte';
 
 	interface Props {
 		heading: string;
 		created_at: string;
-		goBackUrl?: string;
+		tags?: string[];
+		navigateBackFallbackUrl: string;
 		children?: Snippet;
 	}
 
-	let { goBackUrl, heading, created_at, children }: Props = $props();
+	let { navigateBackFallbackUrl, heading, created_at, tags, children }: Props = $props();
 </script>
 
-<div class="flex items-start space-x-8">
-	{#if goBackUrl}
-		<button class="mt-1" onclick={() => goBack(goBackUrl)}>
-			<SquareArrowLeft size={32} strokeWidth={1.5} />
+<main class="relative mx-auto max-w-2xl">
+	<div
+		class="text-muted-foreground mx-auto mb-12 max-w-2xl lg:absolute lg:-top-2.5 lg:-left-24 lg:mb-0"
+	>
+		<button
+			class="rounded-full border-1 border-solid p-2 hover:cursor-pointer"
+			onclick={() => navigateBack(navigateBackFallbackUrl)}
+		>
+			<ArrowLeft size={24} strokeWidth={1.5} />
 		</button>
-	{/if}
+	</div>
+
+	<time class="body-secondary relative z-10 flex items-center pl-3.5 text-sm">
+		<span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
+			<span class="h-4 w-0.5 rounded-full bg-neutral-900 dark:bg-white"></span>
+		</span>
+		<span class="text-muted-foreground">{dayjs(created_at).format('DD MMM YYYY')}</span>
+	</time>
+
+	<h1 class="lg:text-7xl mt-7 md:mt-10 lg:mt-12">{heading}</h1>
 
 	<div>
-		<h1>{heading}</h1>
-		<p class="muted pb-6">{datetimeFormatter(created_at)}</p>
+		<!-- view counts -->
+
+		<!-- estimated read time -->
 	</div>
-</div>
 
-<Separator class="mb-8" />
+	{#if tags}
+		<Tags class="my-7 md:my-10 lg:my-12" {tags} />
+	{/if}
 
-{@render children?.()}
+	{#if children}
+		{@render children()}
+	{/if}
+</main>

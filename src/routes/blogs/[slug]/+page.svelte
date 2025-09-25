@@ -1,18 +1,15 @@
 <script lang="ts">
+	import Article from '$lib/components/Article.svelte';
 	import * as Layout from '$lib/components/layout';
 
 	const { data } = $props();
-	const item = $derived(data.item);
 </script>
 
 <Layout.PageContent
-	heading={item.frontmatter.title as string}
-	created_at={item.frontmatter.created_at as string}
-	goBackUrl="/blogs"
+	heading={data.item.title}
+	created_at={data.item.created_at}
+	tags={data.item.tags}
+	navigateBackFallbackUrl="/blogs"
 >
-	<article>
-		{#if item.body?.html}
-			{@html item.body?.html}
-		{/if}
-	</article>
+	<Article content={data.item.content} />
 </Layout.PageContent>

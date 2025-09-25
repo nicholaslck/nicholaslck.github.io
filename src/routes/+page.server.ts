@@ -1,19 +1,39 @@
-import { ContentDirectory, listContents, readContents } from '$lib/server/data';
+import { blogs, projects, workExperiences } from '$velite';
 
 export const load = async ({ parent }) => {
-	const slugs = await listContents(ContentDirectory.Blogs);
-	const items = await Promise.all(slugs.map((slug) => readContents(slug, ContentDirectory.Blogs)));
-
-	items.sort(
-		(a, b) =>
-			new Date(b.frontmatter.created_at as unknown as string).getTime() -
-			new Date(a.frontmatter.created_at as unknown as string).getTime()
-	);
-
 	const { config } = await parent();
+
+	const latestBlog = blogs
+		.slice()
+		.filter((blog) => blog.published)
+		.sort(
+			(a, b) =>
+				new Date(b.created_at as unknown as string).getTime() -
+				new Date(a.created_at as unknown as string).getTime()
+		)
+		.at(0);
+
+	const latestProject = projects
+		.slice()
+		.sort(
+			(a, b) =>
+				new Date(b.date as unknown as string).getTime() -
+				new Date(a.date as unknown as string).getTime()
+		)
+		.at(0);
+
+	const experiences = workExperiences
+		.slice()
+		.sort(
+			(a, b) =>
+				new Date(b.start_date as unknown as string).getTime() -
+				new Date(a.start_date as unknown as string).getTime()
+		);
 
 	return {
 		config: { ...config },
-		items: items.slice(0, 3)
+		latestBlog,
+		latestProject,
+		experiences
 	};
 };

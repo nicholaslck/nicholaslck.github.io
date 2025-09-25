@@ -1,0 +1,21 @@
+filters:
+  and:
+    - file.inFolder("blogs")
+    - file.ext != "base"
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - title
+      - created_at
+      - tags
+      - abstract
+      - published
+    sort:
+      - property: created_at
+        direction: DESC
+    columnSize:
+      note.title: 256
+      note.created_at: 211
+      note.tags: 176

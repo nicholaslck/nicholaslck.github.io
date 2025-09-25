@@ -1,0 +1,23 @@
+filters:
+  and:
+    - file.inFolder("work_experiences")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - company
+      - position
+      - start_date
+      - end_date
+      - is_current
+      - description
+    sort:
+      - property: start_date
+        direction: DESC
+    columnSize:
+      note.company: 212
+      note.position: 175
+      note.start_date: 136
+      note.end_date: 138
+      note.description: 129
