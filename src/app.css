@@ -166,8 +166,6 @@ p.muted {
 }
 
 /* TODO: code block styling */
-/* TODO: unordered list styling */
-/* TODO: ordered list styling */
 article.content {
 	h1 {
 		@apply mt-10 scroll-m-20 text-4xl font-extrabold tracking-tight lg:mt-12 lg:text-5xl;
@@ -209,5 +207,27 @@ article.content {
 		td {
 			@apply border-b px-4 py-2;
 		}
+	}
+
+	ul {
+		@apply list-inside list-disc leading-7 [&:not(:first-child)]:mt-6;
+	}
+
+	ul ul {
+		@apply mt-0! list-[circle] ps-6;
+	}
+
+	ul ul ul {
+		@apply list-[square];
+	}
+
+	ol {
+		@apply list-inside list-decimal leading-7 [&:not(:first-child)]:mt-6;
+	}
+	ol ol {
+		@apply mt-0! list-[lower-alpha] ps-6;
+	}
+	ol ol ol {
+		@apply list-[lower-roman];
 	}
 }

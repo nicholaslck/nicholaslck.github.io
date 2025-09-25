@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: Demo article
 created_at: 2025-09-25T15:24:00
 abstract: This is a demo article that attempt to show all markdown styles supported.
@@ -34,6 +34,9 @@ Unordered
     - Ac tristique libero volutpat at
     - Facilisis in pretium nisl aliquet
     - Nulla volutpat aliquam velit
+        - Sublist againt
+        - Hey
+            - Anymore?
 - Very easy!
 
 Ordered
@@ -43,6 +46,10 @@ Ordered
 3. Integer molestie lorem at massa
 4. You can use sequential numbers...
 5. ...or keep all the numbers as `1.`
+    1. Can you see this?
+    2. This is a sub-list
+        1. Again! another sub-list
+            1. How far can we go?
 
 Start numbering with offset:
 
