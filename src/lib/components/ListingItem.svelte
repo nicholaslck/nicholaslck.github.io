@@ -17,7 +17,7 @@
 </script>
 
 <div>
-	<a {href} target={isExternal ? '_blank' : '_self'}>
+	<a {href} target={isExternal ? '_blank' : undefined}>
 		<Box class="hover:bg-accent md:col-span-3">
 			{#if date}
 				<Datetime datetime={date} isYearOnly={dateIsYearOnly} />

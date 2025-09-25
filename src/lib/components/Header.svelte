@@ -83,7 +83,9 @@
 
 <header class="absolute top-0 left-0 w-full" style="height: {headerHeight}px;">
 	<div style="height: {headerInnerOffsetTop}px;" aria-hidden="true"></div>
-	<div class={['from-primary/30 bg-gradient-to-b to-transparent z-10', 'relative bottom-0 pt-6 pb-4']}>
+	<div
+		class={['from-primary/30 z-10 bg-gradient-to-b to-transparent', 'relative bottom-0 pt-6 pb-4']}
+	>
 		<div class="container flex w-full items-center justify-between">
 			<a href="/">
 				<Avatar.Root
