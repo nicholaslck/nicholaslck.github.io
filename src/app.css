@@ -132,14 +132,15 @@ h6 {
 }
 
 p {
-	@apply mb-6 leading-7 [&:not(:first-child)]:mt-6;
+	@apply leading-7 [&:not(:first-child)]:mt-6;
 }
 
 blockquote {
 	@apply mt-6 border-l-2 pl-6 italic;
 }
 
-ul, ol {
+ul,
+ol {
 	@apply leading-7 [&:not(:first-child)]:mt-6;
 }
 
@@ -147,20 +148,22 @@ code {
 	@apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
 }
 
+.lead,
 p.lead {
 	@apply text-muted-foreground text-xl;
 }
 
-div.large,
+.large,
 p.large {
 	@apply text-lg font-semibold;
 }
 
-small,
+.small,
 p.small {
 	@apply text-sm leading-none font-medium;
 }
 
+.muted,
 p.muted {
 	@apply text-muted-foreground text-sm;
 }
@@ -168,30 +171,29 @@ p.muted {
 /* TODO: code block styling */
 article.content {
 	h1 {
-		@apply mt-10 scroll-m-20 text-4xl font-extrabold tracking-tight lg:mt-12 lg:text-5xl;
+		@apply mt-10 lg:mt-12;
 	}
 	h2 {
-		@apply mt-8 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors;
+		/* empty */
 	}
-
 	h3 {
-		@apply mt-7 scroll-m-20 text-2xl font-semibold tracking-tight;
+		/* empty */
 	}
 
 	h4 {
-		@apply mt-6 scroll-m-20 text-xl font-semibold tracking-tight;
+		/* empty */
 	}
 
 	h5 {
-		@apply mt-6 scroll-m-20 text-xl font-semibold tracking-tight;
+		/* empty */
 	}
 
 	h6 {
-		@apply mt-5 scroll-m-20 text-lg font-semibold tracking-tight;
+		/* empty */
 	}
 
 	p {
-		@apply mb-6 leading-7 [&:not(:first-child)]:mt-6;
+		/* empty */
 	}
 
 	a {

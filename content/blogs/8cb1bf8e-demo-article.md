@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Demo article
 created_at: 2025-09-25T15:24:00
 abstract: This is a demo article that attempt to show all markdown styles supported.
