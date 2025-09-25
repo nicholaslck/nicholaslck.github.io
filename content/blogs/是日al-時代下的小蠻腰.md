@@ -12,6 +12,7 @@ abstract: |-
   有印象的就只記得那條開合大橋。
 tags:
   - personal
+published: true
 ---
 
 聽說大澳的貓很有性格，

@@ -5,6 +5,7 @@ export const load = async ({ parent }) => {
 
 	const latestBlog = blogs
 		.slice()
+		.filter((blog) => blog.published)
 		.sort(
 			(a, b) =>
 				new Date(b.created_at as unknown as string).getTime() -

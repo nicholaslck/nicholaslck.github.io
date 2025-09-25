@@ -28,10 +28,12 @@ collections:
     slug: '{{uuid_shorter}}-{{slug}}'
     sortable_fields:
       fields: [title, created_at]
-      default:
-        field: created_at
-        direction: descending
+      default: { field: created_at, direction: descending }
+    view_filters:
+      - { label: 'Published', field: 'published', pattern: true }
+      - { label: 'Drafts', field: 'published', pattern: false }
     fields:
+      - { label: 'Published', name: 'published', widget: 'boolean', default: true }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Created at', name: 'created_at', widget: 'datetime', default: '{{now}}' }
       - { label: 'Abstract', name: 'abstract', widget: 'text' }
@@ -63,6 +65,9 @@ collections:
     folder: 'content/projects'
     create: true
     slug: '{{slug}}'
+    sortable_fields:
+      fields: ['date']
+      default: { field: date, direction: descending }
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'text' }
@@ -100,9 +105,7 @@ collections:
     slug: '{{slug}}'
     sortable_fields:
       fields: ['start_date', 'end_date']
-      default:
-        field: start_date
-        direction: descending
+      default: { field: start_date, direction: descending }
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Institution', name: 'institution', widget: 'string' }
@@ -118,9 +121,7 @@ collections:
     slug: '{{slug}}'
     sortable_fields:
       fields: ['start_date', 'end_date']
-      default:
-        field: start_date
-        direction: descending
+      default: { field: start_date, direction: descending }
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Institution', name: 'institution', widget: 'string' }
@@ -135,17 +136,15 @@ collections:
     summary: '{{company}} - {{position}}'
     sortable_fields:
       fields: ['start_date', 'end_date']
-      default:
-        field: start_date
-        direction: descending
+      default: { field: start_date, direction: descending }
     fields:
       - { label: 'Icon', name: 'icon', widget: 'image' }
       - { label: 'Company', name: 'company', widget: 'string' }
       - { label: 'Position', name: 'position', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text', required: false }
       - { label: 'Start date', name: 'start_date', widget: 'datetime' }
       - { label: 'End date', name: 'end_date', widget: 'datetime', required: false }
       - { label: 'Is current', name: 'is_current', widget: 'boolean' }
-      - { label: 'Description', name: 'description', widget: 'text', required: false }
 
   - name: 'pages'
     label: 'Pages'

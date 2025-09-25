@@ -11,6 +11,7 @@ views:
       - created_at
       - tags
       - abstract
+      - published
     sort:
       - property: created_at
         direction: DESC

@@ -5,11 +5,8 @@
 	let { content }: Props = $props();
 </script>
 
-<article class="mx-auto max-w-2xl">
+<article class="content">
 	{#if content}
 		{@html content}
 	{/if}
 </article>
-
-<style>
-</style>

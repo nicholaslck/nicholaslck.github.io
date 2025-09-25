@@ -43,7 +43,7 @@
 <!-- Latest blog post -->
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6">
 	{#if data.latestBlog}
-		<Box class="md:col-span-3">
+		<Box href={data.latestBlog.slug} class="md:col-span-3">
 			<BoxNameTag name="Latest blog" iconId="sparkles" />
 			<Datetime datetime={data.latestBlog.created_at} />
 
@@ -91,25 +91,24 @@
 		</div>
 	</Box>
 	<!-- Project list entry -->
-	<Box class="md:col-span-2">
-		<BoxNameTag name="Projects" iconId="puzzle" />
-
-		<div
-			class="relative overflow-clip rounded-2xl"
-			role="button"
-			tabindex="0"
-			onmouseover={() => (showProjectMore = true)}
-			onmouseleave={() => (showProjectMore = false)}
-			onfocus={() => (showProjectMore = true)}
-			onblur={() => (showProjectMore = false)}
-			onkeydown={(e) => {
-				if (e.key === 'Enter' || e.key === ' ') {
-					e.preventDefault();
-					window.location.href = '/projects';
-				}
-			}}
-		>
-			<a href="/projects" tabindex="-1">
+	<div
+		class="relative md:col-span-2"
+		role="button"
+		tabindex="0"
+		onmouseover={() => (showProjectMore = true)}
+		onmouseleave={() => (showProjectMore = false)}
+		onfocus={() => (showProjectMore = true)}
+		onblur={() => (showProjectMore = false)}
+		onkeydown={(e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				window.location.href = '/projects';
+			}
+		}}
+	>
+		<Box>
+			<BoxNameTag name="Projects" iconId="puzzle" />
+			<a href="/projects" tabindex="-1" class="relative block overflow-clip rounded-2xl">
 				<img src={data.latestProject?.cover_image?.src} alt={data.latestProject?.title} />
 				{#if showProjectMore}
 					<div
@@ -119,8 +118,8 @@
 					</div>
 				{/if}
 			</a>
-		</div>
-	</Box>
+		</Box>
+	</div>
 
 	<!-- Embedded music -->
 	<!-- <Box>Music</Box> -->

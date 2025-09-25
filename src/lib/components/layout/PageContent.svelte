@@ -35,7 +35,7 @@
 		<span class="text-muted-foreground">{dayjs(created_at).format('DD MMM YYYY')}</span>
 	</time>
 
-	<h1 class="mt-7 md:mt-10 lg:mt-12">{heading}</h1>
+	<h1 class="lg:text-7xl mt-7 md:mt-10 lg:mt-12">{heading}</h1>
 
 	<div>
 		<!-- view counts -->

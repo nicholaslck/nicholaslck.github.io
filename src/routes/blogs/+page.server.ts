@@ -7,9 +7,9 @@ export const load = async ({ parent }) => {
 	const { frontmatter } = await readContents('blog-list', ContentDirectory.Pages);
 	const { config } = await parent();
 
-	const items: Blog[] = blogs.sort(
-		(a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-	);
+	const items: Blog[] = blogs
+		.filter((blog) => blog.published)
+		.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
 	return {
 		config: { ...config, blogList: frontmatter },
