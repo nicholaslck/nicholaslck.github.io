@@ -1,16 +1,15 @@
-<script lang="ts" generics="T extends Partial<{ slug: string, frontmatter: any }>">
+<script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { Input } from '../ui/input';
-	import { Search } from 'lucide-svelte';
+	import Masonry from 'svelte-bricks';
 
 	interface Props {
 		heading: string;
 		subheading: string;
-		items: T[];
-		children: Snippet<[T]>;
+		items: any[];
+		children: Snippet<[any]>;
 	}
 
-	let { heading, subheading, items, children }: Props = $props();
+	let { heading, subheading, items, children: _children }: Props = $props();
 </script>
 
 <h1 class="max-w-2xl pb-6">{heading}</h1>
@@ -18,9 +17,9 @@
 <p class="max-w-2xl pb-6">{subheading}</p>
 
 <div class="mt-16">
-	<ol class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-		{#each items as item (item.slug)}
-			{@render children?.(item)}
-		{/each}
-	</ol>
+	<Masonry {items} idKey={'slug'} gap={16}>
+		{#snippet children({ item })}
+			{@render _children?.(item)}
+		{/snippet}
+	</Masonry>
 </div>

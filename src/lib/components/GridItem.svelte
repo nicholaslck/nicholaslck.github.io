@@ -38,7 +38,7 @@
 		<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 		<div class="absolute bottom-0 flex w-full flex-nowrap justify-between p-4">
 			<div class="small text-white">{title}</div>
-			<div class="small text-white">{dayjs(date).format('MMM YYYY')}</div>
+			<div class="muted text-white">{dayjs(date).format('MMM YYYY')}</div>
 		</div>
 	</svelte:element>
 

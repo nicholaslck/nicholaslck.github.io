@@ -115,6 +115,9 @@ importers:
       svelte:
         specifier: ^5.39.6
         version: 5.39.6
+      svelte-bricks:
+        specifier: ^0.3.2
+        version: 0.3.2
       svelte-check:
         specifier: ^4.3.2
         version: 4.3.2(picomatch@4.0.3)(svelte@5.39.6)(typescript@5.9.2)
@@ -2761,6 +2764,9 @@ packages:
   supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
+
+  svelte-bricks@0.3.2:
+    resolution: {integrity: sha512-VKQdeXj0+iRV8U0BWl+5r3W/IzZiA51Z6Zjctj/AYd5PU9MwNraHzj63wzUataKxDXB2AX2vc/bb4LuqywY0/w==}
 
   svelte-check@4.3.2:
     resolution: {integrity: sha512-71udP5w2kaSTcX8iV0hn3o2FWlabQHhJTJLIQrCqMsrcOeDUO2VhCQKKCA8AMVHSPwdxLEWkUWh9OKxns5PD9w==}
@@ -6007,6 +6013,10 @@ snapshots:
   supports-color@7.2.0:
     dependencies:
       has-flag: 4.0.0
+
+  svelte-bricks@0.3.2:
+    dependencies:
+      svelte: 5.39.6
 
   svelte-check@4.3.2(picomatch@4.0.3)(svelte@5.39.6)(typescript@5.9.2):
     dependencies:
