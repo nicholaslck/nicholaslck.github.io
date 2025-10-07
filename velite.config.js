@@ -54,7 +54,10 @@ const projects = defineCollection({
 		type: s.enum(['work_project', 'mphil_project', 'self_project', 'freelance_project']),
 		date: s.isodate(),
 		related_work_experience: s.string().optional(),
-		cover_image: s.image(staticImageOptions).optional()
+		cover_image: s.image(staticImageOptions).optional(),
+		metadata: s.metadata(),
+		excerpt: s.excerpt(),
+		content: s.markdown()
 	})
 });
 
