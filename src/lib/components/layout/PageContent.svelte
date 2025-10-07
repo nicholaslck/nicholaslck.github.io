@@ -38,9 +38,9 @@
 	<h1 class="lg:text-7xl mt-7 md:mt-10 lg:mt-12">{heading}</h1>
 
 	<div>
-		<!-- view counts -->
+		<!-- TODO: view counts -->
 
-		<!-- estimated read time -->
+		<!-- TODO: estimated read time -->
 	</div>
 
 	{#if tags}

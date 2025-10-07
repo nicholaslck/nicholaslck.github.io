@@ -4,6 +4,7 @@
 
 <script lang="ts">
 	import type { HTMLImgAttributes } from 'svelte/elements';
+	import { mode } from 'mode-watcher';
 
 	interface Props extends HTMLImgAttributes {
 		iconId: string;
@@ -16,16 +17,21 @@
 
 	let { iconId, size, width, height, color, darkModeColor, ...reset }: Props = $props();
 
-	let src = $derived.by(() => {
-		let segments = [cdnUrl, iconId];
-		if (color) {
-			segments.push(color);
-		}
-		if (color && darkModeColor) {
-			segments.push(darkModeColor);
-		}
-		return segments.join('/');
-	});
+	let srcBase = $derived(cdnUrl.concat('/', iconId));
 </script>
 
-<img width={size || width || 32} height={size || height || 32} {src} {...reset} />
+{#if mode.current === 'dark'}
+	<img
+		width={size || width || 32}
+		height={size || height || 32}
+		src={srcBase.concat('/', darkModeColor || 'white')}
+		{...reset}
+	/>
+{:else}
+	<img
+		width={size || width || 32}
+		height={size || height || 32}
+		src={srcBase.concat('/', color || 'black')}
+		{...reset}
+	/>
+{/if}
