@@ -100,9 +100,9 @@
 			<Tabs.Root value={current}>
 				<Tabs.List>
 					<!-- <a href="/about-me"><Tabs.Trigger value="about-me">About me</Tabs.Trigger></a> -->
-					<a class="cursor-pointer" href="/blogs">
-						<Tabs.Trigger value="blogs">Blogs</Tabs.Trigger>
-					</a>
+
+					<a class="rounded-xl" href="/blogs"><Tabs.Trigger value="blogs">Blogs</Tabs.Trigger> </a>
+
 					<a class="cursor-pointer" href="/projects">
 						<Tabs.Trigger value="projects">Projects</Tabs.Trigger>
 					</a>
@@ -110,7 +110,9 @@
 			</Tabs.Root>
 
 			<DropdownMenu.Root>
-				<DropdownMenu.Trigger class={buttonVariants({ variant: 'outline', size: 'icon' })}>
+				<DropdownMenu.Trigger
+					class={buttonVariants({ variant: 'outline', size: 'icon' }) + ' rounded-full!'}
+				>
 					<Sun
 						class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
 					/>

@@ -12,14 +12,16 @@
 	let { heading, subheading, items, children: _children }: Props = $props();
 </script>
 
-<h1 class="max-w-2xl pb-6">{heading}</h1>
+<main>
+	<h1 class="max-w-2xl pb-6">{heading}</h1>
 
-<p class="max-w-2xl pb-6">{subheading}</p>
+	<p class="max-w-2xl pb-6">{subheading}</p>
 
-<div class="mt-16 transition-opacity duration-300 ">
-	<Masonry {items} idKey={'slug'} gap={16} animate={true}>
-		{#snippet children({ item })}
-			{@render _children?.(item)}
-		{/snippet}
-	</Masonry>
-</div>
+	<div class="mt-16" data-aos="fade-in">
+		<Masonry {items} idKey={'slug'} gap={16} animate={true}>
+			{#snippet children({ item })}
+				{@render _children?.(item)}
+			{/snippet}
+		</Masonry>
+	</div>
+</main>

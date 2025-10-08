@@ -7,7 +7,12 @@
 	const items = $derived(data.items);
 </script>
 
-<Layout.Listing heading={heading as string} subheading={subheading as string} {items}>
+<Layout.Listing
+	heading={heading as string}
+	subheading={subheading as string}
+	{items}
+	searchKeys={['title', 'abstract']}
+>
 	{#snippet children(item)}
 		<ListingItem
 			href={item.slug}

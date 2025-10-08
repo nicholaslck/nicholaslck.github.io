@@ -16,7 +16,7 @@
 	const { href, date, title, abstract, isExternal, dateIsYearOnly, tags }: Props = $props();
 </script>
 
-<div>
+<div data-aos="fade-up" data-aos-offset="-10" data-aos-once="true">
 	<a {href} target={isExternal ? '_blank' : undefined}>
 		<Box class="hover:bg-accent md:col-span-3">
 			{#if date}
