@@ -89,7 +89,9 @@
 				</div>
 			{/each}
 		</div>
+		<Button class="w-full" variant="outline" onclick={() => alert('Not yet implemented')}>Download my CV</Button>
 	</Box>
+
 	<!-- Project list entry -->
 	<div
 		class="relative md:col-span-2"

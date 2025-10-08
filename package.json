@@ -23,6 +23,7 @@
 		"@sveltejs/kit": "^2.43.4",
 		"@sveltejs/vite-plugin-svelte": "^5.1.1",
 		"@tailwindcss/vite": "^4.1.13",
+		"@types/aos": "^3.0.7",
 		"@types/lodash-es": "^4.17.12",
 		"@types/markdown-it": "^14.1.2",
 		"bits-ui": "^2.11.4",
@@ -41,6 +42,7 @@
 		"prettier-plugin-tailwindcss": "^0.6.14",
 		"shiki": "^3.13.0",
 		"svelte": "^5.39.6",
+		"svelte-bricks": "^0.3.2",
 		"svelte-check": "^4.3.2",
 		"tailwind-merge": "^3.3.1",
 		"tailwind-variants": "^1.0.0",
@@ -54,11 +56,12 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.16.1",
+		"aos": "^2.3.4",
 		"dayjs": "^1.11.18",
 		"gray-matter": "^4.0.3",
 		"lodash-es": "^4.17.21",
 		"markdown-it": "^14.1.0",
-		"mode-watcher": "^0.5.1"
+		"mode-watcher": "^1.1.0"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [

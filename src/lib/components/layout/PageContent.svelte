@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { navigateBack } from '$lib/utils';
 	import { ArrowLeft } from 'lucide-svelte';
 	import dayjs from 'dayjs';
+	import { navigateBack } from '$lib/utils';
 	import Tags from '../Tags.svelte';
 
 	interface Props {
@@ -35,12 +35,12 @@
 		<span class="text-muted-foreground">{dayjs(created_at).format('DD MMM YYYY')}</span>
 	</time>
 
-	<h1 class="lg:text-7xl mt-7 md:mt-10 lg:mt-12">{heading}</h1>
+	<h1 class="mt-7 md:mt-10 lg:mt-12 lg:text-7xl">{heading}</h1>
 
 	<div>
-		<!-- view counts -->
+		<!-- TODO: view counts -->
 
-		<!-- estimated read time -->
+		<!-- TODO: estimated read time -->
 	</div>
 
 	{#if tags}
