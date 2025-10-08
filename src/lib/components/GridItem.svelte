@@ -16,14 +16,7 @@
 	let { url, image, title, date, caseStudyEnabled }: Props = $props();
 </script>
 
-<div
-	class="rounded-2xl border-1 p-2"
-	data-aos-duration="250"
-	data-aos-delay="300"
-	data-aos="fade-up"
-	data-aos-offset="-50"
-	data-aos-once="true"
->
+<div class="rounded-2xl border-1 p-2" data-aos="fade-up" data-aos-offset="-10" data-aos-once="true">
 	<svelte:element
 		this={caseStudyEnabled ? 'div' : 'a'}
 		href={caseStudyEnabled ? undefined : url}

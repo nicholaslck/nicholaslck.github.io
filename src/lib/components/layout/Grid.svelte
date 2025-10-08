@@ -17,7 +17,7 @@
 
 	<p class="max-w-2xl pb-6">{subheading}</p>
 
-	<div class="mt-16" data-aos="fade-in">
+	<div class="view-transition-main mt-16" data-aos="fade-in">
 		<Masonry {items} idKey={'slug'} gap={16} animate={true}>
 			{#snippet children({ item })}
 				{@render _children?.(item)}

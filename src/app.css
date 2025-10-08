@@ -141,7 +141,7 @@ blockquote {
 
 ul,
 ol {
-	@apply leading-7 [&:not(:first-child)]:mt-6 list-none;
+	@apply list-none leading-7 [&:not(:first-child)]:mt-6;
 }
 
 .lead,
@@ -242,4 +242,9 @@ html.dark .shiki span {
 	font-style: var(--shiki-dark-font-style) !important;
 	font-weight: var(--shiki-dark-font-weight) !important;
 	text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+/* View transition API */
+.view-transition-main {
+	view-transition-name: main;
 }
