@@ -10,7 +10,8 @@
 <Layout.Grid heading={heading as string} subheading={subheading as string} {items}>
 	{#snippet children(item)}
 		<GridItem
-			url={item.url || item.slug}
+			slug={item.slug}
+			url={item.url}
 			title={item.title}
 			date={item.date}
 			caseStudyEnabled={!!item.content.length}

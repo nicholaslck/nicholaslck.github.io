@@ -6,6 +6,7 @@
 	import { Skeleton } from './ui/skeleton';
 
 	interface Props {
+		slug: string;
 		url: string;
 		title: string;
 		date: string;
@@ -13,7 +14,7 @@
 		image?: Image;
 	}
 
-	let { url, image, title, date, caseStudyEnabled }: Props = $props();
+	let { slug, url, image, title, date, caseStudyEnabled }: Props = $props();
 </script>
 
 <div class="rounded-2xl border-1 p-2" data-aos="fade-up" data-aos-offset="-10" data-aos-once="true">
@@ -43,11 +44,11 @@
 	</svelte:element>
 
 	{#if caseStudyEnabled}
-		<div class="flex w-full flex-nowrap justify-evenly gap-2">
-			<Button variant="secondary" class="flex-1">
+		<div class="mt-2 flex w-full flex-nowrap justify-evenly gap-2">
+			<Button href={slug} variant="secondary" class="flex-1 rounded-lg">
 				<BookOpenText />Case study
 			</Button>
-			<Button variant="secondary" class="flex-1">
+			<Button href={url} target="_blank" variant="secondary" class="flex-1 rounded-lg">
 				<SquareArrowOutUpRight />View website
 			</Button>
 		</div>
