@@ -141,7 +141,7 @@ blockquote {
 
 ul,
 ol {
-	@apply leading-7 [&:not(:first-child)]:mt-6;
+	@apply leading-7 [&:not(:first-child)]:mt-6 list-none;
 }
 
 .lead,

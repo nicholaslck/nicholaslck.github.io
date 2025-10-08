@@ -16,8 +16,8 @@
 
 <p class="max-w-2xl pb-6">{subheading}</p>
 
-<div class="mt-16">
-	<Masonry {items} idKey={'slug'} gap={16}>
+<div class="mt-16 transition-opacity duration-300 ">
+	<Masonry {items} idKey={'slug'} gap={16} animate={true}>
 		{#snippet children({ item })}
 			{@render _children?.(item)}
 		{/snippet}

@@ -16,7 +16,7 @@
 	let { url, image, title, date, caseStudyEnabled }: Props = $props();
 </script>
 
-<li class="rounded-2xl border-1 p-2">
+<div class="rounded-2xl border-1 p-2">
 	<svelte:element
 		this={caseStudyEnabled ? 'div' : 'a'}
 		href={caseStudyEnabled ? undefined : url}
@@ -52,4 +52,4 @@
 			</Button>
 		</div>
 	{/if}
-</li>
+</div>
