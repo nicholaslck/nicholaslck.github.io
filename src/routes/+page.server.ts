@@ -1,4 +1,4 @@
-import { blogs, projects, workExperiences } from '$velite';
+import { blogs, projects, workExperiences, resumeFile } from '$velite';
 
 export const load = async ({ parent }) => {
 	const { config } = await parent();
@@ -30,10 +30,13 @@ export const load = async ({ parent }) => {
 				new Date(a.start_date as unknown as string).getTime()
 		);
 
+	const _resumeFile = resumeFile.slice().at(0) || { file: '', last_updated: '' };
+
 	return {
 		config: { ...config },
 		latestBlog,
 		latestProject,
-		experiences
+		experiences,
+		resumeFile: _resumeFile
 	};
 };

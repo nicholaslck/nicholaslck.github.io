@@ -7,7 +7,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Mail, Linkedin } from 'lucide-svelte/icons';
 	import dayjs from 'dayjs';
-	import Skeleton from '$lib/components/ui/skeleton/skeleton.svelte';
+	import { goto } from '$app/navigation';
 
 	let { data } = $props();
 
@@ -17,7 +17,9 @@
 <!-- Dynamic downscale from 8rem to 2.5rem -->
 
 <!-- Headline -->
-<h1 class="mt-36 max-w-2xl">Software Engineer, <span class="text-primary">adventurer,</span><br />and a great day dreamer</h1>
+<h1 class="mt-36 max-w-2xl">
+	Software Engineer, <span class="text-primary">adventurer,</span><br />and a great day dreamer
+</h1>
 
 <p class="text-muted-foreground max-w-2xl">
 	Hi, I’m Nicholas 👋 — a software engineer passionate about building full-stack applications and
@@ -89,12 +91,17 @@
 				</div>
 			{/each}
 		</div>
-		<Button class="w-full" variant="outline" onclick={() => alert('Not yet implemented')}>Download my CV</Button>
+
+		{#if data.resumeFile.file}
+			<Button class="w-full" variant="outline" onclick={() => goto(data.resumeFile.file)}
+				>Download my CV</Button
+			>
+		{/if}
 	</Box>
 
 	<!-- Project list entry -->
 	<div
-		class="relative md:col-span-2 "
+		class="relative md:col-span-2"
 		role="button"
 		tabindex="0"
 		onmouseover={() => (showProjectMore = true)}

@@ -9,6 +9,19 @@ public_folder: '/uploads' # Folder where media files will be accessible
 site_url: https://nicholaslck.github.io
 display_url: https://nicholaslck.github.io
 
+singletons:
+  - label: 'Resume file'
+    name: 'resume_file'
+    file: 'content/resume_file.md'
+    fields:
+      - {
+          label: Resume file,
+          name: file,
+          widget: file,
+          hint: 'Upload your resume in PDF format'
+        }
+      - { label: Last updated, name: last_updated, widget: datetime, default: '{{now}}' }
+
 collections:
   - name: 'configs'
     label: 'Configs'

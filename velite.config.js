@@ -102,6 +102,16 @@ const workExperiences = defineCollection({
 	})
 });
 
+const resumeFile = defineCollection({
+	name: 'ResumeFile',
+	pattern: 'resume_file.md',
+	schema: s.object({
+		slug: s.path(),
+		file: s.string(),
+		last_updated: s.isodate()
+	})
+});
+
 export default defineConfig({
 	collections: {
 		configs,
@@ -110,6 +120,7 @@ export default defineConfig({
 		projects,
 		educations,
 		certifications,
-		workExperiences
+		workExperiences,
+		resumeFile
 	}
 });
