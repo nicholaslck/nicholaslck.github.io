@@ -20,6 +20,7 @@ export const load = async ({ parent }) => {
 				new Date(b.date as unknown as string).getTime() -
 				new Date(a.date as unknown as string).getTime()
 		)
+		.filter((project) => !project.coming_soon)
 		.at(0);
 
 	const experiences = workExperiences

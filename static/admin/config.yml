@@ -14,12 +14,7 @@ singletons:
     name: 'resume_file'
     file: 'content/resume_file.md'
     fields:
-      - {
-          label: Resume file,
-          name: file,
-          widget: file,
-          hint: 'Upload your resume in PDF format'
-        }
+      - { label: Resume file, name: file, widget: file, hint: 'Upload your resume in PDF format' }
       - { label: Last updated, name: last_updated, widget: datetime, default: '{{now}}' }
 
 collections:
@@ -84,7 +79,7 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Cover image', name: 'cover_image', widget: 'image' }
+      - { label: 'Cover image', name: 'cover_image', widget: 'image', required: false }
       - {
           label: 'URL',
           name: 'url',
@@ -99,6 +94,14 @@ collections:
           options: ['work_project', 'mphil_project', 'self_project', 'freelance_project']
         }
       - { label: 'Date', name: 'date', widget: 'datetime', time_format: false }
+      - {
+          label: 'Coming soon',
+          name: 'coming_soon',
+          widget: 'boolean',
+          default: false,
+          required: false,
+          hint: 'Mark as coming soon if the project is not yet launched'
+        }
       - {
           label: 'Related work experience',
           name: 'related_work_experience',

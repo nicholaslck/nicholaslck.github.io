@@ -16,6 +16,7 @@
 			date={item.date}
 			caseStudyEnabled={!!item.content.length}
 			image={item.cover_image}
+			isComingSoon={item.coming_soon}
 		/>
 	{/snippet}
 </Layout.Grid>

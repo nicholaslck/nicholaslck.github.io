@@ -151,6 +151,6 @@
 		</div>
 	</Box>
 
-	<!-- Random Project Highlight -->
-	<Box class="md:col-span-2">Random Project Highlight</Box>
+	<!-- Random Highlight -->
+	<Box class="bg-[url('/uploads/IMG_4062.jpeg')] bg-cover bg-center md:col-span-2"></Box>
 </div>

@@ -53,6 +53,7 @@ const projects = defineCollection({
 		url: s.union([s.string().url(), s.literal('')]).optional(),
 		type: s.enum(['work_project', 'mphil_project', 'self_project', 'freelance_project']),
 		date: s.isodate(),
+		coming_soon: s.boolean().optional(),
 		related_work_experience: s.string().optional(),
 		cover_image: s.image(staticImageOptions).optional(),
 		metadata: s.metadata(),
