@@ -17,7 +17,7 @@
 <!-- Dynamic downscale from 8rem to 2.5rem -->
 
 <!-- Headline -->
-<h1 class="mt-36 max-w-2xl">Software Engineer, adventurer,<br />and a great day dreamer</h1>
+<h1 class="mt-36 max-w-2xl">Software Engineer, <span class="text-primary">adventurer,</span><br />and a great day dreamer</h1>
 
 <p class="text-muted-foreground max-w-2xl">
 	Hi, I’m Nicholas 👋 — a software engineer passionate about building full-stack applications and
@@ -94,7 +94,7 @@
 
 	<!-- Project list entry -->
 	<div
-		class="relative md:col-span-2"
+		class="relative md:col-span-2 "
 		role="button"
 		tabindex="0"
 		onmouseover={() => (showProjectMore = true)}

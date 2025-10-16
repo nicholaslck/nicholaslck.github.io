@@ -18,7 +18,7 @@
 
 <div data-aos="fade-up" data-aos-offset="-10" data-aos-once="true">
 	<a {href} target={isExternal ? '_blank' : undefined}>
-		<Box class="hover:bg-accent md:col-span-3">
+		<Box class="md:col-span-3">
 			{#if date}
 				<Datetime datetime={date} isYearOnly={dateIsYearOnly} />
 			{/if}
