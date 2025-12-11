@@ -140,17 +140,17 @@
 			Have an idea in your mind?<br />Let's chat about your next project!
 		</div>
 
-		<div class="flex w-full gap-2">
+		<div class="flex w-full gap-2 flex-col">
 			<Button href="mailto:nicholaslck@gmail.com" variant="outline" class="w-full">Email me</Button>
 
 			<Button
 				href="https://www.threads.com/@nicholaslck?igshid=NTc4MTIwNjQ2YQ=="
 				variant="outline"
-				class="w-full">DM on Threads</Button
+				class="w-full">Threads DM</Button
 			>
 		</div>
 	</Box>
 
 	<!-- Random Highlight -->
-	<Box class="bg-[url('/uploads/IMG_4062.jpeg')] bg-cover bg-center md:col-span-2"></Box>
+	<Box class="bg-[url('/uploads/IMG_4062.jpeg')] bg-cover bg-center md:col-span-2 min-h-40"></Box>
 </div>
