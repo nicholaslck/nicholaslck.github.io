@@ -4,8 +4,7 @@ description: This project offers users the opportunity to draw wireframes and ge
 cover_image: /uploads/tldraw_with_ollama.png
 url: https://github.com/nicholaslck/tldraw-ollama
 type: self_project
-date: 2023-05-01
+date: 2023-04-01
 related_work_experience: ''
 related_project: ''
 ---
-
