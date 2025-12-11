@@ -33,7 +33,7 @@ collections:
     label: 'Blogs'
     folder: 'content/blogs'
     create: true
-    slug: '{{uuid_shorter}}-{{slug}}'
+    slug: '{{slug}}'
     sortable_fields:
       fields: [title, created_at]
       default: { field: created_at, direction: descending }

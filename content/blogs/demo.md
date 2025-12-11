@@ -1,11 +1,12 @@
 ---
-published: false
-title: Demo article
+published: true
+title: Demo
 created_at: 2025-09-25T15:24:00
 abstract: This is a demo article that attempt to show all markdown styles supported.
 tags:
   - dev
 ---
+
 # h1 Heading
 
 ## h2 Heading
@@ -31,12 +32,12 @@ Unordered
 - Create a list by starting a line with `+`, `-`, or `*`
 - Sub-lists are made by indenting 2 spaces:
 - Marker character change forces new list start:
-    - Ac tristique libero volutpat at
-    - Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-        - Sublist againt
-        - Hey
-            - Anymore?
+  - Ac tristique libero volutpat at
+  - Facilisis in pretium nisl aliquet
+  - Nulla volutpat aliquam velit
+    - Sublist againt
+    - Hey
+      - Anymore?
 - Very easy!
 
 Ordered
@@ -46,10 +47,10 @@ Ordered
 3. Integer molestie lorem at massa
 4. You can use sequential numbers...
 5. ...or keep all the numbers as `1.`
-    1. Can you see this?
-    2. This is a sub-list
-        1. Again! another sub-list
-            1. How far can we go?
+   1. Can you see this?
+   2. This is a sub-list
+      1. Again! another sub-list
+         1. How far can we go?
 
 Start numbering with offset:
 
@@ -59,7 +60,8 @@ Start numbering with offset:
 ## Blockquotes
 
 > Blockquotes can also be nested...
-> >> ...by using additional greater-than signs right next to each other...
+>
+> > > ...by using additional greater-than signs right next to each other...
 > > > ...or with spaces between arrows.
 
 ## Code
@@ -76,13 +78,13 @@ Syntax highlighting
 
 ```javascript
 var foo = function (bar) {
-  return bar++;
+	return bar++;
 };
 
 console.log(foo(5));
 ```
 
-## 
+##
 
 ## Emphasis
 
@@ -90,15 +92,15 @@ console.log(foo(5));
 
 _This is italic text_
 
-## 
+##
 
 ## Tables
 
-| Option | Description |
-| --- | --- |
-| data | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext | extension to be used for dest files. |
+| Option | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
+| ext    | extension to be used for dest files.                                      |
 
 table above.
 
@@ -108,6 +110,6 @@ table above.
 
 ## Images
 
-![Minion](https://octodex.github.com/images/minion.png "image-title-minion")
+![Minion](https://octodex.github.com/images/minion.png 'image-title-minion')
 
-[![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")](https://www.google.com)
+[![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')](https://www.google.com)
