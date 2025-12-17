@@ -7,4 +7,3 @@ end_date: 2019-06-01
 is_current: false
 description: Native iOS app development and enhancement. Include shopping mall apps and banking apps. Experience in interacting with iBeacon and Location related development.
 ---
-

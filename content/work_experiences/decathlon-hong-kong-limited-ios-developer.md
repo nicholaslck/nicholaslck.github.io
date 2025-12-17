@@ -7,4 +7,3 @@ end_date: 2020-03-01
 is_current: false
 description: Application development includes iOS / Android / Web-front / Kiosk etc. Implement CI/CD pipeline for projects. Open source contributions within company international organization repos.
 ---
-

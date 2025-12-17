@@ -7,4 +7,3 @@ end_date: 2019-01-01
 is_current: false
 description: ''
 ---
-

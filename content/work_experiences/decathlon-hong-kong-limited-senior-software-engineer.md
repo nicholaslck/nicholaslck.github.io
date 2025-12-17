@@ -7,4 +7,3 @@ end_date: 2024-03-01
 is_current: false
 description: Application development includes SPA, SSR. Cypress automated test management for team continuous contribution. Development and maintenance on Hong Kong official Decathlon website
 ---
-

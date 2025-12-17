@@ -87,7 +87,7 @@
 		<div class="container flex w-full items-center justify-between">
 			<a href="/">
 				<Avatar.Root
-					class="header-avatar origin-left border-1 hover:border-primary"
+					class="header-avatar hover:border-primary origin-left border-1"
 					style={'--avatar-transform: ' + avatarTransformVar}
 				>
 					<Avatar.Image src={avatar} alt="Nicholas" />

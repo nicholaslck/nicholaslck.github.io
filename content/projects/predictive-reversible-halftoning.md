@@ -8,6 +8,7 @@ date: 2023-05-23
 related_work_experience: ''
 related_project: predictive-reversible-halftoning
 ---
+
 # From Zero to Magic: Taming Reversible Halftoning with Predictive Luminance
 
 Picture staring at a black-and-white dot matrix, your brain effortlessly conjuring the original colors. That's pure magic, right? That's the thrill that hooked me during my MPhil at CUHK on "Taming Reversible Halftoning via Predictive Luminance," published in TVCG 2023. I dove in after geeking out on classic halftoning like error diffusion and ordered dithering; Menghan Xia's prior work flipping B&W to color felt impossible yet irresistible—humans guess grayscale easy, but full color? Game on.

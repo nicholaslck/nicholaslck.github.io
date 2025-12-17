@@ -1,10 +1,5 @@
 {
-	"cSpell.words": [
-		"isodate",
-		"mphil",
-		"Paraglide",
-		"Sveltia"
-	],
+	"cSpell.words": ["isodate", "mphil", "Paraglide", "Sveltia"],
 	"yaml.schemas": {
 		"https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json": ["/static/admin/config.yml"]
 	}

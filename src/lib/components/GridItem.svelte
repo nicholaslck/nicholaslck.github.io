@@ -45,7 +45,7 @@
 
 		{#if isComingSoon}
 			<div
-				class="absolute top-1/2 left-1/2 -translate-1/2 rounded-full bg-secondary px-6 py-3 text-xs font-semibold text-secondary-foreground"
+				class="bg-secondary text-secondary-foreground absolute top-1/2 left-1/2 -translate-1/2 rounded-full px-6 py-3 text-xs font-semibold"
 			>
 				Coming Soon
 			</div>
