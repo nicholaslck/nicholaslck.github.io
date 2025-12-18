@@ -2,7 +2,6 @@
 	import type { Snippet } from 'svelte';
 	import { Input } from '../ui/input';
 	import { Search } from 'lucide-svelte';
-	import { entries } from 'lodash-es';
 
 	interface Props {
 		heading: string;

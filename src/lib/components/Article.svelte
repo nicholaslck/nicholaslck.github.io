@@ -7,6 +7,7 @@
 	let { content }: Props = $props();
 
 	const highlightCodeBlocks: Attachment = (el) => {
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 		content;
 		(async () => {
 			await Promise.all(

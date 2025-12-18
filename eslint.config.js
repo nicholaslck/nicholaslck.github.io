@@ -11,9 +11,9 @@ export default ts.config(
 	includeIgnoreFile(gitignorePath),
 	js.configs.recommended,
 	...ts.configs.recommended,
-	...svelte.configs['flat/recommended'],
+	...svelte.configs.recommended,
 	prettier,
-	...svelte.configs['flat/prettier'],
+	...svelte.configs.prettier,
 	{
 		languageOptions: {
 			globals: {
@@ -23,7 +23,7 @@ export default ts.config(
 		}
 	},
 	{
-		files: ['**/*.svelte'],
+		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
 
 		languageOptions: {
 			parserOptions: {
@@ -32,6 +32,12 @@ export default ts.config(
 					experimentalGenerics: true
 				}
 			}
+		}
+	},
+	{
+		rules: {
+			'svelte/no-at-html-tags': ['off'],
+			'svelte/no-navigation-without-resolve': ['off']
 		}
 	}
 );

@@ -12,7 +12,7 @@
 </script>
 
 <div class={cn('flex w-full flex-wrap gap-2', className)}>
-	{#each tags as tag}
+	{#each tags as tag (tag)}
 		<Badge variant="secondary">
 			<Tag />
 			<span>{tag}</span>
