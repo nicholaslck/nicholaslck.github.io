@@ -11,7 +11,7 @@
 	{#snippet children(item)}
 		<GridItem
 			slug={item.slug}
-			url={item.url}
+			url={item.url ?? ''}
 			title={item.title}
 			date={item.date}
 			caseStudyEnabled={!!item.content.length}
