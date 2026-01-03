@@ -136,7 +136,7 @@ h6 {
 }
 
 p {
-	@apply leading-7 [&:not(:first-child)]:mt-6;
+	@apply leading-7 not-first:mt-6;
 }
 
 blockquote {
@@ -145,7 +145,7 @@ blockquote {
 
 ul,
 ol {
-	@apply list-none leading-7 [&:not(:first-child)]:mt-6;
+	@apply list-none leading-7 not-first:mt-6;
 }
 
 .lead,
@@ -174,29 +174,31 @@ article.content {
 		@apply mt-10 lg:mt-12;
 	}
 
+	/* 
 	h2 {
-		/* empty */
+
 	}
 
 	h3 {
-		/* empty */
+
 	}
 
 	h4 {
-		/* empty */
+
 	}
 
 	h5 {
-		/* empty */
+
 	}
 
 	h6 {
-		/* empty */
+
 	}
 
 	p {
-		/* empty */
+
 	}
+	*/
 
 	a {
 		@apply text-primary underline-offset-4 hover:underline;
@@ -215,7 +217,7 @@ article.content {
 	}
 
 	ul {
-		@apply list-inside list-disc leading-7 [&:not(:first-child)]:mt-6;
+		@apply list-inside list-disc leading-7 not-first:mt-6;
 	}
 
 	ul ul {
@@ -227,7 +229,7 @@ article.content {
 	}
 
 	ol {
-		@apply list-inside list-decimal leading-7 [&:not(:first-child)]:mt-6;
+		@apply list-inside list-decimal leading-7 not-first:mt-6;
 	}
 
 	ol ol {
