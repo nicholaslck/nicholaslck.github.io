@@ -17,6 +17,7 @@
 		"clean": "rm -rf .svelte-kit build"
 	},
 	"devDependencies": {
+		"@catppuccin/tailwindcss": "^1.0.0",
 		"@eslint/compat": "^1.4.0",
 		"@eslint/js": "^9.36.0",
 		"@sveltejs/adapter-static": "^3.0.9",
@@ -65,6 +66,7 @@
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
+			"@tailwindcss/oxide",
 			"esbuild",
 			"lefthook"
 		],
