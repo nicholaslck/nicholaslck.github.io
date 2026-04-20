@@ -1,4 +1,4 @@
 ---
-file: /uploads/Nicholas_CV_20240101.pdf
-last_updated: 2025-10-17T00:47:00
+file: /uploads/Nicholas_Resume_20260312.pdf
+last_updated: 2026-04-20T10:38:00
 ---

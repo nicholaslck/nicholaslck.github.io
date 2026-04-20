@@ -23,19 +23,19 @@
 
 <p class="text-muted-foreground max-w-2xl">
 	Hi, I’m Nicholas 👋 — a software engineer passionate about building full-stack applications and
-	integrating AI agents into real-world workflows. Currently on a working holiday in New Zealand, I
+	integrating AI agents into real-world workflows. Just finished working holiday in New Zealand last year, and I
 	split my time between coding 👨‍💻, exploring the outdoors 🏞️, and contributing to open-source
 	projects 🌐. I love challenges 🧩, learning by doing 🛠️, and finding creative solutions to
 	problems big and small ✨.
 </p>
 
 <div class="mb-20">
-	<div class="mt-8 flex space-x-4">
-		<SocialMediaButton iconId="github" size={24} href="https://github.com/nicholaslck" />
+	<div class="mt-8 flex space-x-4 text-muted-foreground">
+		<SocialMediaButton iconId="github" size={24} href="https://github.com/nicholaslck" color="black" darkModeColor="bac2de" />
 		<a href="https://www.linkedin.com/in/nicholaslck">
 			<Linkedin size={24} />
 		</a>
-		<SocialMediaButton iconId="threads" size={24} href="https://www.threads.com/@nicholaslck" />
+		<SocialMediaButton iconId="threads" size={24} href="https://www.threads.com/@nicholaslck" color="black" darkModeColor="bac2de" />
 		<a href="mailto:nicholaslck@gmail.com">
 			<Mail size={24} />
 		</a>

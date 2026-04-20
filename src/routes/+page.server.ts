@@ -1,10 +1,12 @@
-import { blogs, projects, workExperiences, resumeFile } from '$velite';
+import { dev } from '$app/environment';
+import { blogs, projects, resumeFile, workExperiences } from '$velite';
 
 export const load = async ({ parent }) => {
 	const { config } = await parent();
 
 	const latestBlog = blogs
 		.slice()
+		.filter((blog) => (dev ? blog : blog.slug !== 'blogs/demo')) // hide demo blog in production
 		.filter((blog) => blog.published)
 		.sort(
 			(a, b) =>
